@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px; /* Set a max width for the container */
+    margin: 0 auto;   /* Center the container */
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Category styling */
+.category {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category h2 {
+    margin: 0;
+    padding: 15px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.category h2::after {
+    content: '▼';
+    font-size: 18px;
+    transition: transform 0.2s;
+}
+
+.category.active h2::after {
+    content: '▲';
+}
+
+.category .content {
+    display: none;
+    padding: 15px;
+    border-top: 1px solid #ccc;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item span {
+    font-weight: 500;
+}
+
+/* Counter styling */
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.counter button {
+    background-color: #134074;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px; /* Adds space between the buttons and the input */
+}
+
+.counter input {
+    width: 30px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Angebot Anfragen Section */
+.section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    font-size: 1.5em;
+    color: #0b2545;
+    margin-bottom: 10px;
+}
+
+.section p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #0b2545;
+}
+
+/* Kontakt Section */
+.contact-section {
+    background-color: #134074;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.contact-section h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.contact-form textarea {
+    flex: 1 1 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+
+.contact-form input {
+    flex: 1 1 45%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.submit-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.submit-button {
+    background-color: #1976d2; /* Matching the color in your screenshot */
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #155a9b; /* Darker shade for hover */
+}

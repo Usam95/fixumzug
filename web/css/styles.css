@@ -1,0 +1,335 @@
+:root {
+    --color-1: #134074;
+    --color-2: #13315c;
+    --color-3: #0b2545;
+    --color-4: #8da9c4;
+    --color-5: #eef4ed;
+--color-6: #ffffff
+}
+
+/* Reset */
+
+/* Color palette: https://coolors.co/palette/22223b-4a4e69-9a8c98-c9ada7-f2e9e4 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styling */
+header {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px 10px 20px;
+    border-bottom: 1px solid var(--color-3);
+    font-size: 1.5em; /* Adjust as needed for the right size */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 200px;
+	height: 120px; /* Ensure a fixed height for consistency */
+	overflow: hidden; /* Prevents content from expanding beyond the container */
+}
+
+.logo img {
+    height: 268px; /* Sets the image height to fill the container */
+    width: auto; /* Maintains aspect ratio */
+    object-fit: contain; /* Ensures the image scales without stretching */
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    color: var(--color-2);
+    margin-right: 5px;
+}
+
+.contact-info span {
+    color: var(--color-1);
+    margin-right: 20px;
+}
+
+.quote-button {
+    background-color: var(--color-2);
+    color: var(--color-5);
+    border: none;
+	padding: 10px 12px; /* Increase padding for a bigger button */
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+	font-size: 1.0em; /* Increase font size */
+}
+
+nav {
+    margin-top: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-1);
+    font-weight: bold;
+}
+
+/* Hero Section Styling */
+/* Hero Section Styling */
+.hero-section {
+    position: relative;
+    background-image: url('images/ingolstadt.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #f2e9e4;
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden; /* To ensure overlay doesn't overflow */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity for desired darkness */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensure text appears above the overlay */
+}
+
+.hero-content h1 {
+    font-size: 7em;               /* 3 times larger than 3em */
+    margin-bottom: 30px;          /* Increase margin proportionally */
+    color: var(--color-5);
+}
+
+.hero-content p {
+    font-size: 2.8em;             /* 3 times larger than 1.2em */
+    margin-bottom: 60px;          /* Increase margin proportionally */
+    color: var(--color-5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 85px;                    /* 3 times larger gap */
+    justify-content: center;
+}
+
+.hero-buttons .quote-button,
+.hero-buttons .viewing-button {
+    background-color: var(--color-2);
+    color: var(--color-5);
+    padding: 15px 25px;           /* Increase padding 3 times */
+    border: none;
+    border-radius: 15px;          /* Increase border radius to keep proportions */
+    font-size: 1.6em;               /* 3 times larger than 1em */
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* Service Section */
+/* Service Section Container */
+.service-section {
+    padding: 50px 20px;
+    background-color: var(--color-5);
+    text-align: center;
+}
+
+.service-section__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles for Service Section */
+.service-section__subtitle {
+    font-size: 1.2em;
+    color: var(--color-1);
+}
+
+.service-section__title {
+    font-size: 2em;
+    margin-top: 10px;
+}
+
+.service-section__description {
+    font-size: 1em;
+    color: var(--color-2);
+    margin-top: 10px;
+}
+
+/* Grid Layout for Services */
+.service-section__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates a 2x2 grid layout */
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Service Item Styling */
+.service-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    height: 300px; /* Fixed height for uniform size for grid cells */
+}
+
+/* Image Styling */
+.service-item__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the grid cell without distortion */
+}
+
+/* Service Title */
+/* Service Title */
+.service-item__title {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    color: white;
+    font-size: 1.5em; /* Increased font size */
+    padding: 10px; /* Increased padding for better spacing */
+    margin: 0;
+    text-align: center;
+    font-weight: bold; /* Added bold weight for better readability */
+}
+
+
+
+
+
+
+
+
+
+/* Procedure Section */
+.procedure-section {
+    background-color: var(--color-1);
+    color: var(--color-5);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.procedure-steps .step-number {
+    color: var(--color-3);
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Gallery Section */
+.gallery-section {
+    background-color: var(--color-5);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery-grid img {
+    border: 2px solid var(--color-2);
+    border-radius: 5px;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--color-2);
+    color: var(--color-5);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-details i, .contact-buttons button {
+    color: var(--color-4);
+}
+
+.contact-buttons .quote-button,
+.contact-buttons .viewing-button {
+    background-color: var(--color-1);
+    color: var(--color-5);
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-buttons .callback-button {
+    background-color: var(--color-3);
+    color: var(--color-1);
+    border: 2px solid var(--color-5);
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: var(--color-5);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.testimonials-grid .testimonial {
+    background-color: var(--color-3);
+    color: var(--color-1);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+/* Footer Section */
+footer {
+    background-color: var(--color-1);
+    color: var(--color-5);
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-links a, .legal a {
+    color: var(--color-4);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.social-media a {
+    color: var(--color-5);
+    font-size: 1.5em;
+    margin: 0 10px;
+}
+
+.footer-contact {
+    color: var(--color-5);
+}

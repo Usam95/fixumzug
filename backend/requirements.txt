@@ -1,0 +1,6 @@
+Flask
+Flask-Mail
+Flask-Uploads
+flask-cors
+werkzeug==0.16.1
+markupsafe==2.0.1

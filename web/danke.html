@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vielen Dank</title>
+    <style>
+        /* Color Palette */
+        :root {
+            --color-1: #134074;  /* Primary Dark Blue */
+            --color-2: #13315c;  /* Secondary Dark Blue */
+            --color-3: #0b2545;  /* Deep Navy */
+            --color-4: #8da9c4;  /* Light Blue for accents */
+            --color-5: #eef4ed;  /* Light Background */
+            --color-6: #ffffff;  /* White */
+        }
+
+        /* Styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--color-5);
+            margin: 0;
+        }
+
+        .thank-you-container {
+            text-align: center;
+            background-color: var(--color-6);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            color: var(--color-3);
+        }
+
+        .thank-you-container h2 {
+            color: var(--color-1);
+        }
+
+        .thank-you-container p {
+            color: var(--color-2);
+            margin: 10px 0 20px;
+        }
+
+        .thank-you-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: var(--color-1);
+            color: var(--color-6);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .thank-you-button:hover {
+            background-color: var(--color-2);
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <h2>Vielen Dank für Ihre Anfrage</h2>
+        <p>Wir werden Ihre Daten Analysieren und uns innerhalb von 24 Std bei Ihnen melden.</p>
+        <a href="/index.html" class="thank-you-button">Abschließen</a>
+    </div>
+</body>
+</html>
