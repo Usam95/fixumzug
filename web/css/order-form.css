@@ -1,14 +1,27 @@
+/* General resets */
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
     margin: 0;
+    padding: 0;
+}
+
+html, body, header, .header-container {
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container styling */
+.container {
+    max-width: 900px;
+    margin: 20px auto;
     padding: 20px;
 }
 
-.container {
-    max-width: 900px; /* Set a max width for the container */
-    margin: 0 auto;   /* Center the container */
-    padding: 20px;
+/* Header and Title */
+header {
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -54,6 +67,7 @@ h1 {
     border-top: 1px solid #ccc;
 }
 
+/* Item styling */
 .item {
     display: flex;
     justify-content: space-between;
@@ -89,7 +103,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 10px; /* Adds space between the buttons and the input */
+    margin: 0 10px;
 }
 
 .counter input {
@@ -101,13 +115,16 @@ h1 {
     color: #333;
 }
 
-/* Angebot Anfragen Section */
-.section {
-    background-color: #fff;
+/* Sections */
+.section, .contact-section {
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    background-color: #fff;
 }
 
 .section h2 {
@@ -122,39 +139,24 @@ h1 {
     color: #0b2545;
 }
 
-/* Kontakt Section */
 .contact-section {
     background-color: #134074;
     color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
 }
 
 .contact-section h2 {
     margin: 0;
-    color: #fff;
     font-size: 1.2em;
     font-weight: bold;
 }
 
+/* Contact form */
 .contact-form {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     margin-top: 15px;
 }
-
-.contact-form textarea {
-    flex: 1 1 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1em;
-    margin-top: 10px;
-}
-
 
 .contact-form input {
     flex: 1 1 45%;
@@ -164,6 +166,7 @@ h1 {
     font-size: 1em;
 }
 
+/* Submit section */
 .submit-section {
     display: flex;
     justify-content: center;
@@ -171,7 +174,7 @@ h1 {
 }
 
 .submit-button {
-    background-color: #1976d2; /* Matching the color in your screenshot */
+    background-color: #1976d2;
     color: #fff;
     padding: 15px 30px;
     font-size: 1em;
@@ -184,5 +187,5 @@ h1 {
 }
 
 .submit-button:hover {
-    background-color: #155a9b; /* Darker shade for hover */
+    background-color: #155a9b;
 }

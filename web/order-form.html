@@ -6,30 +6,34 @@
     <title>Order Form for Moving Services</title>
     <link rel="stylesheet" href="css/styles.css"> <!-- Global styles -->
     <link rel="stylesheet" href="css/order-form.css"> <!-- Order form specific styles -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.category h2').forEach(categoryHeader => {
-                categoryHeader.addEventListener('click', () => {
-                    const category = categoryHeader.parentElement;
-                    category.classList.toggle('active');
-                    const content = categoryHeader.nextElementSibling;
-                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
-                });
-            });
-        });
-
-        function updateCount(button, inputId, increment) {
-            const input = document.getElementById(inputId);
-            let currentValue = parseInt(input.value);
-            if (increment) {
-                input.value = currentValue + 1;
-            } else if (currentValue > 0) {
-                input.value = currentValue - 1;
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome icons -->
 </head>
 <body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html"> <!-- Link to the homepage -->
+                    <img src="images/logo.svg" alt="Fix Umzug Logo">
+                </a>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-phone-alt"></i>
+                <span>+49 (0) 176/ 313 227 66</span>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#services">Service</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#pricing">Preisliste</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Container (excludes header) -->
     <div class="container">
         <!-- Angebot Anfragen Section -->
         <section class="section">
@@ -43,141 +47,266 @@
         </section>
 
         <!-- Kontakt Section -->
-	<section class="contact-section">
-		<h2>Kontakt</h2>
-		<form id="contact-form" action="/submit" method="POST" enctype="multipart/form-data" class="contact-form">
-			<div class="contact-form">
-				<input type="text" name="name" placeholder="Name*" required>
-				<input type="text" name="surname" placeholder="Vorname*" required>
-				<input type="email" name="email" placeholder="E-Mail*" required>
-				<input type="tel" name="phone" placeholder="Telefon">
-				<textarea name="message" placeholder="Your message" required style="flex: 1 1 100%; height: 100px;"></textarea>
-				<input type="file" name="files" accept="image/*,video/*" multiple style="flex: 1 1 100%; margin-top: 10px;">
+        <section class="contact-section">
+            <h2>Kontakt</h2>
+            <form id="contact-form" action="/submit" method="POST" enctype="multipart/form-data" class="contact-form">
+                <div class="contact-form">
+                    <input type="text" name="name" placeholder="Name*" required>
+                    <input type="text" name="surname" placeholder="Vorname*" required>
+                    <input type="email" name="email" placeholder="E-Mail*" required>
+                    <input type="tel" name="phone" placeholder="Telefon">
+                    <textarea name="message" placeholder="Your message" required style="flex: 1 1 100%; height: 100px;"></textarea>
+                    <input type="file" name="files" accept="image/*,video/*" multiple style="flex: 1 1 100%; margin-top: 10px;">
+                </div>
+                <div class="submit-section">
+                    <button type="submit" class="submit-button">ANGEBOT KOSTENLOS EINHOLEN</button>
+                </div>
+            </form>
+        </section>
+
+		<!-- Wohnzimmer Category -->
+		<section class="category">
+			<h2>Wohnzimmer</h2>
+			<div class="content">
+				<div class="item"><span>Bilder bis 0,8 m</span><div class="counter"><button onclick="updateCount(this, 'bilderSmallCount', false)">-</button><input type="text" id="bilderSmallCount" value="0" readonly><button onclick="updateCount(this, 'bilderSmallCount', true)">+</button></div></div>
+				<div class="item"><span>Bilder über 0,8 m</span><div class="counter"><button onclick="updateCount(this, 'bilderLargeCount', false)">-</button><input type="text" id="bilderLargeCount" value="0" readonly><button onclick="updateCount(this, 'bilderLargeCount', true)">+</button></div></div>
+				<div class="item"><span>Bücherregal</span><div class="counter"><button onclick="updateCount(this, 'bucherregalCount', false)">-</button><input type="text" id="bucherregalCount" value="0" readonly><button onclick="updateCount(this, 'bucherregalCount', true)">+</button></div></div>
+				<div class="item"><span>Regal Expedit klein</span><div class="counter"><button onclick="updateCount(this, 'expeditSmallCount', false)">-</button><input type="text" id="expeditSmallCount" value="0" readonly><button onclick="updateCount(this, 'expeditSmallCount', true)">+</button></div></div>
+				<div class="item"><span>Regal Expedit groß</span><div class="counter"><button onclick="updateCount(this, 'expeditLargeCount', false)">-</button><input type="text" id="expeditLargeCount" value="0" readonly><button onclick="updateCount(this, 'expeditLargeCount', true)">+</button></div></div>
+				<div class="item"><span>Buffet mit Aufsatz</span><div class="counter"><button onclick="updateCount(this, 'buffetMitAufsatzCount', false)">-</button><input type="text" id="buffetMitAufsatzCount" value="0" readonly><button onclick="updateCount(this, 'buffetMitAufsatzCount', true)">+</button></div></div>
+				<div class="item"><span>Buffet ohne Aufsatz</span><div class="counter"><button onclick="updateCount(this, 'buffetOhneAufsatzCount', false)">-</button><input type="text" id="buffetOhneAufsatzCount" value="0" readonly><button onclick="updateCount(this, 'buffetOhneAufsatzCount', true)">+</button></div></div>
+				<div class="item"><span>Deckenlampe</span><div class="counter"><button onclick="updateCount(this, 'deckenlampeCount', false)">-</button><input type="text" id="deckenlampeCount" value="0" readonly><button onclick="updateCount(this, 'deckenlampeCount', true)">+</button></div></div>
+				<div class="item"><span>Eckbank</span><div class="counter"><button onclick="updateCount(this, 'eckbankCount', false)">-</button><input type="text" id="eckbankCount" value="0" readonly><button onclick="updateCount(this, 'eckbankCount', true)">+</button></div></div>
+				<div class="item"><span>Ecksofa/Eckcouch</span><div class="counter"><button onclick="updateCount(this, 'ecksofaCount', false)">-</button><input type="text" id="ecksofaCount" value="0" readonly><button onclick="updateCount(this, 'ecksofaCount', true)">+</button></div></div>
+				<div class="item"><span>E-Piano</span><div class="counter"><button onclick="updateCount(this, 'epianoCount', false)">-</button><input type="text" id="epianoCount" value="0" readonly><button onclick="updateCount(this, 'epianoCount', true)">+</button></div></div>
 			</div>
-			<div class="submit-section">
-				<button type="submit" class="submit-button">ANGEBOT KOSTENLOS EINHOLEN</button>
+		</section>
+
+		<!-- Badezimmer Category -->
+		<section class="category">
+			<h2>Badezimmer</h2>
+			<div class="content">
+				<div class="item"><span>Schrank 2 Türen, n.zerlegb.</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenCount', false)">-</button><input type="text" id="schrank2TurenCount" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenCount', true)">+</button></div></div>
+				<div class="item"><span>Schrank, zerl. je angef. m</span><div class="counter"><button onclick="updateCount(this, 'schrankZerlegbarCount', false)">-</button><input type="text" id="schrankZerlegbarCount" value="0" readonly><button onclick="updateCount(this, 'schrankZerlegbarCount', true)">+</button></div></div>
+				<div class="item"><span>Waschmaschine / Trockner</span><div class="counter"><button onclick="updateCount(this, 'waschmaschineCount', false)">-</button><input type="text" id="waschmaschineCount" value="0" readonly><button onclick="updateCount(this, 'waschmaschineCount', true)">+</button></div></div>
+				<div class="item"><span>Spiegelschrank</span><div class="counter"><button onclick="updateCount(this, 'spiegelschrankCount', false)">-</button><input type="text" id="spiegelschrankCount" value="0" readonly><button onclick="updateCount(this, 'spiegelschrankCount', true)">+</button></div></div>
+				<div class="item"><span>Spiegel</span><div class="counter"><button onclick="updateCount(this, 'spiegelCount', false)">-</button><input type="text" id="spiegelCount" value="0" readonly><button onclick="updateCount(this, 'spiegelCount', true)">+</button></div></div>
+				<div class="item"><span>Wäschetruhe</span><div class="counter"><button onclick="updateCount(this, 'waschetruheCount', false)">-</button><input type="text" id="waschetruheCount" value="0" readonly><button onclick="updateCount(this, 'waschetruheCount', true)">+</button></div></div>
+				<div class="item"><span>Umzugskarton</span><div class="counter"><button onclick="updateCount(this, 'umzugskartonCount', false)">-</button><input type="text" id="umzugskartonCount" value="0" readonly><button onclick="updateCount(this, 'umzugskartonCount', true)">+</button></div></div>
+				<div class="item"><span>Deckenlampe</span><div class="counter"><button onclick="updateCount(this, 'deckenlampeCount', false)">-</button><input type="text" id="deckenlampeCount" value="0" readonly><button onclick="updateCount(this, 'deckenlampeCount', true)">+</button></div></div>
 			</div>
-		</form>
-	</section>
+		</section>
 
-	<script>
-		// Function to update counters (assuming the function exists in your script)
-		function updateCount(button, inputId, increment) {
-			const input = document.getElementById(inputId);
-			let count = parseInt(input.value);
-			count = increment ? count + 1 : count - 1;
-			input.value = count > 0 ? count : 0; // Ensure count doesn't go below 0
-		}
+		<!-- Arbeitszimmer Category -->
+		<section class="category">
+			<h2>Arbeitszimmer</h2>
+			<div class="content">
+				<div class="item"><span>Aktenschrank, je m</span><div class="counter"><button onclick="updateCount(this, 'aktenschrankCount', false)">-</button><input type="text" id="aktenschrankCount" value="0" readonly><button onclick="updateCount(this, 'aktenschrankCount', true)">+</button></div></div>
+				<div class="item"><span>Bücherregal, je m</span><div class="counter"><button onclick="updateCount(this, 'bucherregalCount', false)">-</button><input type="text" id="bucherregalCount" value="0" readonly><button onclick="updateCount(this, 'bucherregalCount', true)">+</button></div></div>
+				<div class="item"><span>Kopiermaschine</span><div class="counter"><button onclick="updateCount(this, 'kopiermaschineCount', false)">-</button><input type="text" id="kopiermaschineCount" value="0" readonly><button onclick="updateCount(this, 'kopiermaschineCount', true)">+</button></div></div>
+				<div class="item"><span>PC/EDV Anlage</span><div class="counter"><button onclick="updateCount(this, 'pcEdvAnlageCount', false)">-</button><input type="text" id="pcEdvAnlageCount" value="0" readonly><button onclick="updateCount(this, 'pcEdvAnlageCount', true)">+</button></div></div>
+				<div class="item"><span>Schreibmaschine</span><div class="counter"><button onclick="updateCount(this, 'schreibmaschineCount', false)">-</button><input type="text" id="schreibmaschineCount" value="0" readonly><button onclick="updateCount(this, 'schreibmaschineCount', true)">+</button></div></div>
+				<div class="item"><span>Schreibtisch bis 1,60 m</span><div class="counter"><button onclick="updateCount(this, 'schreibtischSmallCount', false)">-</button><input type="text" id="schreibtischSmallCount" value="0" readonly><button onclick="updateCount(this, 'schreibtischSmallCount', true)">+</button></div></div>
+				<div class="item"><span>Schreibtisch über 1,60 m</span><div class="counter"><button onclick="updateCount(this, 'schreibtischLargeCount', false)">-</button><input type="text" id="schreibtischLargeCount" value="0" readonly><button onclick="updateCount(this, 'schreibtischLargeCount', true)">+</button></div></div>
+				<div class="item"><span>Bürostuhl</span><div class="counter"><button onclick="updateCount(this, 'burostuhlCount', false)">-</button><input type="text" id="burostuhlCount" value="0" readonly><button onclick="updateCount(this, 'burostuhlCount', true)">+</button></div></div>
+				<div class="item"><span>Sideboard, Kommode, klein</span><div class="counter"><button onclick="updateCount(this, 'sideboardKleinCount', false)">-</button><input type="text" id="sideboardKleinCount" value="0" readonly><button onclick="updateCount(this, 'sideboardKleinCount', true)">+</button></div></div>
+				<div class="item"><span>Sideboard, Kommode, groß</span><div class="counter"><button onclick="updateCount(this, 'sideboardGrossCount', false)">-</button><input type="text" id="sideboardGrossCount" value="0" readonly><button onclick="updateCount(this, 'sideboardGrossCount', true)">+</button></div></div>
+				<div class="item"><span>Sessel mit Armlehnen</span><div class="counter"><button onclick="updateCount(this, 'sesselMitArmlehnenCount', false)">-</button><input type="text" id="sesselMitArmlehnenCount" value="0" readonly><button onclick="updateCount(this, 'sesselMitArmlehnenCount', true)">+</button></div></div>
+				<div class="item"><span>Sessel ohne Armlehnen</span><div class="counter"><button onclick="updateCount(this, 'sesselOhneArmlehnenCount', false)">-</button><input type="text" id="sesselOhneArmlehnenCount" value="0" readonly><button onclick="updateCount(this, 'sesselOhneArmlehnenCount', true)">+</button></div></div>
+			</div>
+		</section>
 
-		// Collect all category data
-		function getCategoryData() {
-			const categories = [];
-			document.querySelectorAll(".category").forEach((categorySection) => {
-				const categoryTitle = categorySection.querySelector("h2").textContent;
-				const items = [];
+		<!-- Küche und Esszimmer Category -->
+		<section class="category">
+			<h2>Küche und Esszimmer</h2>
+			<div class="content">
+				<div class="item"><span>Arbeitsplatte, je m</span><div class="counter"><button onclick="updateCount(this, 'arbeitsplatteCount', false)">-</button><input type="text" id="arbeitsplatteCount" value="0" readonly><button onclick="updateCount(this, 'arbeitsplatteCount', true)">+</button></div></div>
+				<div class="item"><span>Besenschrank</span><div class="counter"><button onclick="updateCount(this, 'besenschrankCount', false)">-</button><input type="text" id="besenschrankCount" value="0" readonly><button onclick="updateCount(this, 'besenschrankCount', true)">+</button></div></div>
+				<div class="item"><span>Buffet</span><div class="counter"><button onclick="updateCount(this, 'buffetCount', false)">-</button><input type="text" id="buffetCount" value="0" readonly><button onclick="updateCount(this, 'buffetCount', true)">+</button></div></div>
+				<div class="item"><span>Eckbank, je Sitz</span><div class="counter"><button onclick="updateCount(this, 'eckbankCount', false)">-</button><input type="text" id="eckbankCount" value="0" readonly><button onclick="updateCount(this, 'eckbankCount', true)">+</button></div></div>
+				<div class="item"><span>Geschirrspülmaschine</span><div class="counter"><button onclick="updateCount(this, 'geschirrspulmaschineCount', false)">-</button><input type="text" id="geschirrspulmaschineCount" value="0" readonly><button onclick="updateCount(this, 'geschirrspulmaschineCount', true)">+</button></div></div>
+				<div class="item"><span>Herd</span><div class="counter"><button onclick="updateCount(this, 'herdCount', false)">-</button><input type="text" id="herdCount" value="0" readonly><button onclick="updateCount(this, 'herdCount', true)">+</button></div></div>
+				<div class="item"><span>Kühlschrank bis 120 l</span><div class="counter"><button onclick="updateCount(this, 'kuhlschrankSmallCount', false)">-</button><input type="text" id="kuhlschrankSmallCount" value="0" readonly><button onclick="updateCount(this, 'kuhlschrankSmallCount', true)">+</button></div></div>
+				<div class="item"><span>Kühlschrank über 120 l</span><div class="counter"><button onclick="updateCount(this, 'kuhlschrankLargeCount', false)">-</button><input type="text" id="kuhlschrankLargeCount" value="0" readonly><button onclick="updateCount(this, 'kuhlschrankLargeCount', true)">+</button></div></div>
+				<div class="item"><span>Kühlschrank, amerikanisch</span><div class="counter"><button onclick="updateCount(this, 'kuhlschrankAmericanCount', false)">-</button><input type="text" id="kuhlschrankAmericanCount" value="0" readonly><button onclick="updateCount(this, 'kuhlschrankAmericanCount', true)">+</button></div></div>
+				<div class="item"><span>Mikrowelle</span><div class="counter"><button onclick="updateCount(this, 'mikrowelleCount', false)">-</button><input type="text" id="mikrowelleCount" value="0" readonly><button onclick="updateCount(this, 'mikrowelleCount', true)">+</button></div></div>
+				<div class="item"><span>Oberteil, je Tür</span><div class="counter"><button onclick="updateCount(this, 'oberteilCount', false)">-</button><input type="text" id="oberteilCount" value="0" readonly><button onclick="updateCount(this, 'oberteilCount', true)">+</button></div></div>
+				<div class="item"><span>Unterteil, je Tür</span><div class="counter"><button onclick="updateCount(this, 'unterteilCount', false)">-</button><input type="text" id="unterteilCount" value="0" readonly><button onclick="updateCount(this, 'unterteilCount', true)">+</button></div></div>
+				<div class="item"><span>Stuhl</span><div class="counter"><button onclick="updateCount(this, 'stuhlCount', false)">-</button><input type="text" id="stuhlCount" value="0" readonly><button onclick="updateCount(this, 'stuhlCount', true)">+</button></div></div>
+				<div class="item"><span>Teppich</span><div class="counter"><button onclick="updateCount(this, 'teppichCount', false)">-</button><input type="text" id="teppichCount" value="0" readonly><button onclick="updateCount(this, 'teppichCount', true)">+</button></div></div>
+				<div class="item"><span>Tisch bis 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischSmallCount', false)">-</button><input type="text" id="tischSmallCount" value="0" readonly><button onclick="updateCount(this, 'tischSmallCount', true)">+</button></div></div>
+				<div class="item"><span>Tisch über 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischLargeCount', false)">-</button><input type="text" id="tischLargeCount" value="0" readonly><button onclick="updateCount(this, 'tischLargeCount', true)">+</button></div></div>
+			</div>
+		</section>
 
-				categorySection.querySelectorAll(".item").forEach((item) => {
-					const itemName = item.querySelector("span").textContent;
-					const itemCount = parseInt(item.querySelector("input[type='text']").value);
+		
+		<section class="category">
+			<h2>Schlafzimmer</h2>
+			<div class="content">
+				<div class="item"><span>Bettumbau (Kopfteil)</span><div class="counter"><button onclick="updateCount(this, 'bettumbauCount', false)">-</button><input type="text" id="bettumbauCount" value="0" readonly><button onclick="updateCount(this, 'bettumbauCount', true)">+</button></div></div>
+				<div class="item"><span>Doppelbett</span><div class="counter"><button onclick="updateCount(this, 'doppelbettCount', false)">-</button><input type="text" id="doppelbettCount" value="0" readonly><button onclick="updateCount(this, 'doppelbettCount', true)">+</button></div></div>
+				<div class="item"><span>Einzelbett</span><div class="counter"><button onclick="updateCount(this, 'einzelbettCount', false)">-</button><input type="text" id="einzelbettCount" value="0" readonly><button onclick="updateCount(this, 'einzelbettCount', true)">+</button></div></div>
+				<div class="item"><span>Französisches Bett</span><div class="counter"><button onclick="updateCount(this, 'franzosischesBettCount', false)">-</button><input type="text" id="franzosischesBettCount" value="0" readonly><button onclick="updateCount(this, 'franzosischesBettCount', true)">+</button></div></div>
+				<div class="item"><span>Frisierkommode mit Spiegel</span><div class="counter"><button onclick="updateCount(this, 'frisierkommodeCount', false)">-</button><input type="text" id="frisierkommodeCount" value="0" readonly><button onclick="updateCount(this, 'frisierkommodeCount', true)">+</button></div></div>
+				<div class="item"><span>Kommode klein</span><div class="counter"><button onclick="updateCount(this, 'kommodeKleinCount', false)">-</button><input type="text" id="kommodeKleinCount" value="0" readonly><button onclick="updateCount(this, 'kommodeKleinCount', true)">+</button></div></div>
+				<div class="item"><span>Kommode groß</span><div class="counter"><button onclick="updateCount(this, 'kommodeGrossCount', false)">-</button><input type="text" id="kommodeGrossCount" value="0" readonly><button onclick="updateCount(this, 'kommodeGrossCount', true)">+</button></div></div>
+				<div class="item"><span>Nachtisch/Kästchen</span><div class="counter"><button onclick="updateCount(this, 'nachtischCount', false)">-</button><input type="text" id="nachtischCount" value="0" readonly><button onclick="updateCount(this, 'nachtischCount', true)">+</button></div></div>
+				<div class="item"><span>Schrank bis 2 Türen, zerlegbar</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenZerlegbarCount', false)">-</button><input type="text" id="schrank2TurenZerlegbarCount" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenZerlegbarCount', true)">+</button></div></div>
+				<div class="item"><span>Schrank bis 2 Türen, nicht zerlegbar</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenNichtZerlegbarCount', false)">-</button><input type="text" id="schrank2TurenNichtZerlegbarCount" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenNichtZerlegbarCount', true)">+</button></div></div>
+				<div class="item"><span>Schrank (zerlegbar), je m</span><div class="counter"><button onclick="updateCount(this, 'schrankZerlegbarMeterCount', false)">-</button><input type="text" id="schrankZerlegbarMeterCount" value="0" readonly><button onclick="updateCount(this, 'schrankZerlegbarMeterCount', true)">+</button></div></div>
+				<div class="item"><span>Spiegel über 0,8 m</span><div class="counter"><button onclick="updateCount(this, 'spiegelGrossCount', false)">-</button><input type="text" id="spiegelGrossCount" value="0" readonly><button onclick="updateCount(this, 'spiegelGrossCount', true)">+</button></div></div>
+				<div class="item"><span>Spiegel klein</span><div class="counter"><button onclick="updateCount(this, 'spiegelKleinCount', false)">-</button><input type="text" id="spiegelKleinCount" value="0" readonly><button onclick="updateCount(this, 'spiegelKleinCount', true)">+</button></div></div>
+				<div class="item"><span>Stuhl/Hocker</span><div class="counter"><button onclick="updateCount(this, 'stuhlHockerCount', false)">-</button><input type="text" id="stuhlHockerCount" value="0" readonly><button onclick="updateCount(this, 'stuhlHockerCount', true)">+</button></div></div>
+				<div class="item"><span>Wäschetruhe/Korb</span><div class="counter"><button onclick="updateCount(this, 'waschetruheCount', false)">-</button><input type="text" id="waschetruheCount" value="0" readonly><button onclick="updateCount(this, 'waschetruheCount', true)">+</button></div></div>
+			</div>
+		</section>
 
-					items.push({ name: itemName, count: itemCount });
-				});
+		<section class="category">
+			<h2>Kinderzimmer 1</h2>
+			<div class="content">
+				<div class="item"><span>Bett</span><div class="counter"><button onclick="updateCount(this, 'bettCount', false)">-</button><input type="text" id="bettCount" value="0" readonly><button onclick="updateCount(this, 'bettCount', true)">+</button></div></div>
+				<div class="item"><span>Etagenbett</span><div class="counter"><button onclick="updateCount(this, 'etagenbettCount', false)">-</button><input type="text" id="etagenbettCount" value="0" readonly><button onclick="updateCount(this, 'etagenbettCount', true)">+</button></div></div>
+				<div class="item"><span>Kinderbett</span><div class="counter"><button onclick="updateCount(this, 'kinderbettCount', false)">-</button><input type="text" id="kinderbettCount" value="0" readonly><button onclick="updateCount(this, 'kinderbettCount', true)">+</button></div></div>
+				<div class="item"><span>Kommode klein</span><div class="counter"><button onclick="updateCount(this, 'kommodeKleinCount', false)">-</button><input type="text" id="kommodeKleinCount" value="0" readonly><button onclick="updateCount(this, 'kommodeKleinCount', true)">+</button></div></div>
+				<div class="item"><span>Kommode groß</span><div class="counter"><button onclick="updateCount(this, 'kommodeGrossCount', false)">-</button><input type="text" id="kommodeGrossCount" value="0" readonly><button onclick="updateCount(this, 'kommodeGrossCount', true)">+</button></div></div>
+				<div class="item"><span>Laufgitter</span><div class="counter"><button onclick="updateCount(this, 'laufgitterCount', false)">-</button><input type="text" id="laufgitterCount" value="0" readonly><button onclick="updateCount(this, 'laufgitterCount', true)">+</button></div></div>
+				<div class="item"><span>Nachttisch/Kästchen</span><div class="counter"><button onclick="updateCount(this, 'nachttischCount', false)">-</button><input type="text" id="nachttischCount" value="0" readonly><button onclick="updateCount(this, 'nachttischCount', true)">+</button></div></div>
+				<div class="item"><span>Schrank bis 2 Türen, zerlegbar</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenZerlegbarCount', false)">-</button><input type="text" id="schrank2TurenZerlegbarCount" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenZerlegbarCount', true)">+</button></div></div>
+				<div class="item"><span>Schrank bis 2 Türen, nicht zerlegbar</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenNichtZerlegbarCount', false)">-</button><input type="text" id="schrank2TurenNichtZerlegbarCount" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenNichtZerlegbarCount', true)">+</button></div></div>
+				<div class="item"><span>Schrank, zerlegbar, je m</span><div class="counter"><button onclick="updateCount(this, 'schrankZerlegbarMeterCount', false)">-</button><input type="text" id="schrankZerlegbarMeterCount" value="0" readonly><button onclick="updateCount(this, 'schrankZerlegbarMeterCount', true)">+</button></div></div>
+				<div class="item"><span>Schreibpult/-tisch</span><div class="counter"><button onclick="updateCount(this, 'schreibpultCount', false)">-</button><input type="text" id="schreibpultCount" value="0" readonly><button onclick="updateCount(this, 'schreibpultCount', true)">+</button></div></div>
+				<div class="item"><span>Spielzeugkiste</span><div class="counter"><button onclick="updateCount(this, 'spielzeugkisteCount', false)">-</button><input type="text" id="spielzeugkisteCount" value="0" readonly><button onclick="updateCount(this, 'spielzeugkisteCount', true)">+</button></div></div>
+				<div class="item"><span>Stuhl/Hocker</span><div class="counter"><button onclick="updateCount(this, 'stuhlHockerCount', false)">-</button><input type="text" id="stuhlHockerCount" value="0" readonly><button onclick="updateCount(this, 'stuhlHockerCount', true)">+</button></div></div>
+				<div class="item"><span>Teppich</span><div class="counter"><button onclick="updateCount(this, 'teppichCount', false)">-</button><input type="text" id="teppichCount" value="0" readonly><button onclick="updateCount(this, 'teppichCount', true)">+</button></div></div>
+				<div class="item"><span>Tisch bis 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischBis1MCount', false)">-</button><input type="text" id="tischBis1MCount" value="0" readonly><button onclick="updateCount(this, 'tischBis1MCount', true)">+</button></div></div>
+				<div class="item"><span>Tisch über 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischUber1MCount', false)">-</button><input type="text" id="tischUber1MCount" value="0" readonly><button onclick="updateCount(this, 'tischUber1MCount', true)">+</button></div></div>
+			</div>
+		</section>
 
-				categories.push({ category: categoryTitle, items: items });
-			});
+		
+		<section class="category">
+			<h2>Kinderzimmer 2</h2>
+			<div class="content">
+				<div class="item"><span>Bett</span><div class="counter"><button onclick="updateCount(this, 'bettKinder2Count', false)">-</button><input type="text" id="bettKinder2Count" value="0" readonly><button onclick="updateCount(this, 'bettKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Etagenbett</span><div class="counter"><button onclick="updateCount(this, 'etagenbettKinder2Count', false)">-</button><input type="text" id="etagenbettKinder2Count" value="0" readonly><button onclick="updateCount(this, 'etagenbettKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Kinderbett</span><div class="counter"><button onclick="updateCount(this, 'kinderbettKinder2Count', false)">-</button><input type="text" id="kinderbettKinder2Count" value="0" readonly><button onclick="updateCount(this, 'kinderbettKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Kommode klein</span><div class="counter"><button onclick="updateCount(this, 'kommodeKleinKinder2Count', false)">-</button><input type="text" id="kommodeKleinKinder2Count" value="0" readonly><button onclick="updateCount(this, 'kommodeKleinKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Kommode groß</span><div class="counter"><button onclick="updateCount(this, 'kommodeGrossKinder2Count', false)">-</button><input type="text" id="kommodeGrossKinder2Count" value="0" readonly><button onclick="updateCount(this, 'kommodeGrossKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Laufgitter</span><div class="counter"><button onclick="updateCount(this, 'laufgitterKinder2Count', false)">-</button><input type="text" id="laufgitterKinder2Count" value="0" readonly><button onclick="updateCount(this, 'laufgitterKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Nachttisch/Kästchen</span><div class="counter"><button onclick="updateCount(this, 'nachttischKinder2Count', false)">-</button><input type="text" id="nachttischKinder2Count" value="0" readonly><button onclick="updateCount(this, 'nachttischKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Schrank bis 2 Türen, zerlegbar</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenZerlegbarKinder2Count', false)">-</button><input type="text" id="schrank2TurenZerlegbarKinder2Count" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenZerlegbarKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Schrank bis 2 Türen, nicht zerlegbar</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenNichtZerlegbarKinder2Count', false)">-</button><input type="text" id="schrank2TurenNichtZerlegbarKinder2Count" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenNichtZerlegbarKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Schrank, zerlegbar, je m</span><div class="counter"><button onclick="updateCount(this, 'schrankZerlegbarMeterKinder2Count', false)">-</button><input type="text" id="schrankZerlegbarMeterKinder2Count" value="0" readonly><button onclick="updateCount(this, 'schrankZerlegbarMeterKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Schreibpult/-tisch</span><div class="counter"><button onclick="updateCount(this, 'schreibpultKinder2Count', false)">-</button><input type="text" id="schreibpultKinder2Count" value="0" readonly><button onclick="updateCount(this, 'schreibpultKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Spielzeugkiste</span><div class="counter"><button onclick="updateCount(this, 'spielzeugkisteKinder2Count', false)">-</button><input type="text" id="spielzeugkisteKinder2Count" value="0" readonly><button onclick="updateCount(this, 'spielzeugkisteKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Stuhl/Hocker</span><div class="counter"><button onclick="updateCount(this, 'stuhlHockerKinder2Count', false)">-</button><input type="text" id="stuhlHockerKinder2Count" value="0" readonly><button onclick="updateCount(this, 'stuhlHockerKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Teppich</span><div class="counter"><button onclick="updateCount(this, 'teppichKinder2Count', false)">-</button><input type="text" id="teppichKinder2Count" value="0" readonly><button onclick="updateCount(this, 'teppichKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Tisch bis 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischBis1MKinder2Count', false)">-</button><input type="text" id="tischBis1MKinder2Count" value="0" readonly><button onclick="updateCount(this, 'tischBis1MKinder2Count', true)">+</button></div></div>
+				<div class="item"><span>Tisch über 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischUber1MKinder2Count', false)">-</button><input type="text" id="tischUber1MKinder2Count" value="0" readonly><button onclick="updateCount(this, 'tischUber1MKinder2Count', true)">+</button></div></div>
+			</div>
+		</section>
 
-			return categories;
-		}
+		<section class="category">
+			<h2>Kinderzimmer 3</h2>
+			<div class="content">
+				<!-- Repeat the same structure with unique IDs for each item in Kinderzimmer 3 -->
+				<div class="item"><span>Bett</span><div class="counter"><button onclick="updateCount(this, 'bettKinder3Count', false)">-</button><input type="text" id="bettKinder3Count" value="0" readonly><button onclick="updateCount(this, 'bettKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Etagenbett</span><div class="counter"><button onclick="updateCount(this, 'etagenbettKinder3Count', false)">-</button><input type="text" id="etagenbettKinder3Count" value="0" readonly><button onclick="updateCount(this, 'etagenbettKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Kinderbett</span><div class="counter"><button onclick="updateCount(this, 'kinderbettKinder3Count', false)">-</button><input type="text" id="kinderbettKinder3Count" value="0" readonly><button onclick="updateCount(this, 'kinderbettKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Kommode klein</span><div class="counter"><button onclick="updateCount(this, 'kommodeKleinKinder3Count', false)">-</button><input type="text" id="kommodeKleinKinder3Count" value="0" readonly><button onclick="updateCount(this, 'kommodeKleinKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Kommode groß</span><div class="counter"><button onclick="updateCount(this, 'kommodeGrossKinder3Count', false)">-</button><input type="text" id="kommodeGrossKinder3Count" value="0" readonly><button onclick="updateCount(this, 'kommodeGrossKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Laufgitter</span><div class="counter"><button onclick="updateCount(this, 'laufgitterKinder3Count', false)">-</button><input type="text" id="laufgitterKinder3Count" value="0" readonly><button onclick="updateCount(this, 'laufgitterKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Nachttisch/Kästchen</span><div class="counter"><button onclick="updateCount(this, 'nachttischKinder3Count', false)">-</button><input type="text" id="nachttischKinder3Count" value="0" readonly><button onclick="updateCount(this, 'nachttischKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Schrank bis 2 Türen, zerlegbar</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenZerlegbarKinder3Count', false)">-</button><input type="text" id="schrank2TurenZerlegbarKinder3Count" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenZerlegbarKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Schrank bis 2 Türen, nicht zerlegbar</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurenNichtZerlegbarKinder3Count', false)">-</button><input type="text" id="schrank2TurenNichtZerlegbarKinder3Count" value="0" readonly><button onclick="updateCount(this, 'schrank2TurenNichtZerlegbarKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Schrank, zerlegbar, je m</span><div class="counter"><button onclick="updateCount(this, 'schrankZerlegbarMeterKinder3Count', false)">-</button><input type="text" id="schrankZerlegbarMeterKinder3Count" value="0" readonly><button onclick="updateCount(this, 'schrankZerlegbarMeterKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Schreibpult/-tisch</span><div class="counter"><button onclick="updateCount(this, 'schreibpultKinder3Count', false)">-</button><input type="text" id="schreibpultKinder3Count" value="0" readonly><button onclick="updateCount(this, 'schreibpultKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Spielzeugkiste</span><div class="counter"><button onclick="updateCount(this, 'spielzeugkisteKinder3Count', false)">-</button><input type="text" id="spielzeugkisteKinder3Count" value="0" readonly><button onclick="updateCount(this, 'spielzeugkisteKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Stuhl/Hocker</span><div class="counter"><button onclick="updateCount(this, 'stuhlHockerKinder3Count', false)">-</button><input type="text" id="stuhlHockerKinder3Count" value="0" readonly><button onclick="updateCount(this, 'stuhlHockerKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Teppich</span><div class="counter"><button onclick="updateCount(this, 'teppichKinder3Count', false)">-</button><input type="text" id="teppichKinder3Count" value="0" readonly><button onclick="updateCount(this, 'teppichKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Tisch bis 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischBis1MKinder3Count', false)">-</button><input type="text" id="tischBis1MKinder3Count" value="0" readonly><button onclick="updateCount(this, 'tischBis1MKinder3Count', true)">+</button></div></div>
+				<div class="item"><span>Tisch über 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischUber1MKinder3Count', false)">-</button><input type="text" id="tischUber1MKinder3Count" value="0" readonly><button onclick="updateCount(this, 'tischUber1MKinder3Count', true)">+</button></div></div>
+			</div>
+		</section>
 
-		// Event listener for form submission
-		document.getElementById("contact-form").addEventListener("submit", function(event) {
-			event.preventDefault(); // Prevent the default form submission
+		<section class="category">
+			<h2>Keller/Speicher</h2>
+			<div class="content">
+				<div class="item"><span>Autoreife, je Stück</span><div class="counter"><button onclick="updateCount(this, 'autoreifeCount', false)">-</button><input type="text" id="autoreifeCount" value="0" readonly><button onclick="updateCount(this, 'autoreifeCount', true)">+</button></div></div>
+				<div class="item"><span>Blumenkübel/Kasten</span><div class="counter"><button onclick="updateCount(this, 'blumenkubelCount', false)">-</button><input type="text" id="blumenkubelCount" value="0" readonly><button onclick="updateCount(this, 'blumenkubelCount', true)">+</button></div></div>
+				<div class="item"><span>Bügelbrett</span><div class="counter"><button onclick="updateCount(this, 'bugelbrettCount', false)">-</button><input type="text" id="bugelbrettCount" value="0" readonly><button onclick="updateCount(this, 'bugelbrettCount', true)">+</button></div></div>
+				<div class="item"><span>Dreirad/Kinderrad</span><div class="counter"><button onclick="updateCount(this, 'dreiradKinderCount', false)">-</button><input type="text" id="dreiradKinderCount" value="0" readonly><button onclick="updateCount(this, 'dreiradKinderCount', true)">+</button></div></div>
+				<div class="item"><span>Kinderwagen</span><div class="counter"><button onclick="updateCount(this, 'kinderwagenCount', false)">-</button><input type="text" id="kinderwagenCount" value="0" readonly><button onclick="updateCount(this, 'kinderwagenCount', true)">+</button></div></div>
+				<div class="item"><span>Koffer</span><div class="counter"><button onclick="updateCount(this, 'kofferCount', false)">-</button><input type="text" id="kofferCount" value="0" readonly><button onclick="updateCount(this, 'kofferCount', true)">+</button></div></div>
+				<div class="item"><span>Klapptisch</span><div class="counter"><button onclick="updateCount(this, 'klapptischCount', false)">-</button><input type="text" id="klapptischCount" value="0" readonly><button onclick="updateCount(this, 'klapptischCount', true)">+</button></div></div>
+				<div class="item"><span>Klappstuhl</span><div class="counter"><button onclick="updateCount(this, 'klappstuhlCount', false)">-</button><input type="text" id="klappstuhlCount" value="0" readonly><button onclick="updateCount(this, 'klappstuhlCount', true)">+</button></div></div>
+				<div class="item"><span>Leiter, je m</span><div class="counter"><button onclick="updateCount(this, 'leiterCount', false)">-</button><input type="text" id="leiterCount" value="0" readonly><button onclick="updateCount(this, 'leiterCount', true)">+</button></div></div>
+				<div class="item"><span>Rasenmäher</span><div class="counter"><button onclick="updateCount(this, 'rasenmaherCount', false)">-</button><input type="text" id="rasenmaherCount" value="0" readonly><button onclick="updateCount(this, 'rasenmaherCount', true)">+</button></div></div>
+				<div class="item"><span>Regal, je m</span><div class="counter"><button onclick="updateCount(this, 'regalMeterCount', false)">-</button><input type="text" id="regalMeterCount" value="0" readonly><button onclick="updateCount(this, 'regalMeterCount', true)">+</button></div></div>
+				<div class="item"><span>Schubkarre</span><div class="counter"><button onclick="updateCount(this, 'schubkarreCount', false)">-</button><input type="text" id="schubkarreCount" value="0" readonly><button onclick="updateCount(this, 'schubkarreCount', true)">+</button></div></div>
+				<div class="item"><span>Ski / Stöcke, je Paar</span><div class="counter"><button onclick="updateCount(this, 'skiStockeCount', false)">-</button><input type="text" id="skiStockeCount" value="0" readonly><button onclick="updateCount(this, 'skiStockeCount', true)">+</button></div></div>
+				<div class="item"><span>Sonnenschirm + Fuß</span><div class="counter"><button onclick="updateCount(this, 'sonnenschirmCount', false)">-</button><input type="text" id="sonnenschirmCount" value="0" readonly><button onclick="updateCount(this, 'sonnenschirmCount', true)">+</button></div></div>
+				<div class="item"><span>Staubsauger</span><div class="counter"><button onclick="updateCount(this, 'staubsaugerCount', false)">-</button><input type="text" id="staubsaugerCount" value="0" readonly><button onclick="updateCount(this, 'staubsaugerCount', true)">+</button></div></div>
+				<div class="item"><span>Tischtennisplatte</span><div class="counter"><button onclick="updateCount(this, 'tischtennisplatteCount', false)">-</button><input type="text" id="tischtennisplatteCount" value="0" readonly><button onclick="updateCount(this, 'tischtennisplatteCount', true)">+</button></div></div>
+				<div class="item"><span>Werkbank, klein</span><div class="counter"><button onclick="updateCount(this, 'werkbankKleinCount', false)">-</button><input type="text" id="werkbankKleinCount" value="0" readonly><button onclick="updateCount(this, 'werkbankKleinCount', true)">+</button></div></div>
+				<div class="item"><span>Werkbank, groß</span><div class="counter"><button onclick="updateCount(this, 'werkbankGrossCount', false)">-</button><input type="text" id="werkbankGrossCount" value="0" readonly><button onclick="updateCount(this, 'werkbankGrossCount', true)">+</button></div></div>
+				<div class="item"><span>Werkzeugschrank, je Tür</span><div class="counter"><button onclick="updateCount(this, 'werkzeugschrankCount', false)">-</button><input type="text" id="werkzeugschrankCount" value="0" readonly><button onclick="updateCount(this, 'werkzeugschrankCount', true)">+</button></div></div>
+				<div class="item"><span>Werkzeugkoffer</span><div class="counter"><button onclick="updateCount(this, 'werkzeugkofferCount', false)">-</button><input type="text" id="werkzeugkofferCount" value="0" readonly><button onclick="updateCount(this, 'werkzeugkofferCount', true)">+</button></div></div>
+			</div>
+		</section>
 
-			// Get form data
-			const formData = new FormData(this);
-
-			// Add category data to formData
-			const categoryData = JSON.stringify(getCategoryData());
-			formData.append("categories", categoryData);
-
-			// Send form data to the backend
-			fetch("http://localhost:5000/submit", {  // Adjust URL if necessary
-				method: "POST",
-				body: formData
-			})
-			.then(response => response.json())
-			.then(data => {
-				if (data.status === "success") {
-					// Redirect to the thank-you page on success
-					window.location.href = "http://localhost:8080/danke.html";
-				} else {
-					alert("There was an error submitting the form. Please try again.");
-				}
-			})
-			.catch(error => {
-				console.error("Error:", error);
-				alert("An error occurred. Please try again.");
-			});
-		});
-	</script>
+		<section class="category">
+			<h2>Garten</h2>
+			<div class="content">
+				<div class="item"><span>Klapptisch</span><div class="counter"><button onclick="updateCount(this, 'klapptischGartenCount', false)">-</button><input type="text" id="klapptischGartenCount" value="0" readonly><button onclick="updateCount(this, 'klapptischGartenCount', true)">+</button></div></div>
+				<div class="item"><span>Klappstuhl</span><div class="counter"><button onclick="updateCount(this, 'klappstuhlGartenCount', false)">-</button><input type="text" id="klappstuhlGartenCount" value="0" readonly><button onclick="updateCount(this, 'klappstuhlGartenCount', true)">+</button></div></div>
+				<div class="item"><span>Leiter, je m</span><div class="counter"><button onclick="updateCount(this, 'leiterGartenCount', false)">-</button><input type="text" id="leiterGartenCount" value="0" readonly><button onclick="updateCount(this, 'leiterGartenCount', true)">+</button></div></div>
+				<div class="item"><span>Schubkarre</span><div class="counter"><button onclick="updateCount(this, 'schubkarreGartenCount', false)">-</button><input type="text" id="schubkarreGartenCount" value="0" readonly><button onclick="updateCount(this, 'schubkarreGartenCount', true)">+</button></div></div>
+				<div class="item"><span>Sonnenschirm + Fuß</span><div class="counter"><button onclick="updateCount(this, 'sonnenschirmGartenCount', false)">-</button><input type="text" id="sonnenschirmGartenCount" value="0" readonly><button onclick="updateCount(this, 'sonnenschirmGartenCount', true)">+</button></div></div>
+				<div class="item"><span>Blumenkübel/Kasten</span><div class="counter"><button onclick="updateCount(this, 'blumenkubelGartenCount', false)">-</button><input type="text" id="blumenkubelGartenCount" value="0" readonly><button onclick="updateCount(this, 'blumenkubelGartenCount', true)">+</button></div></div>
+			</div>
+		</section>
 
 
+		<section class="category">
+			<h2>Flur</h2>
+			<div class="content">
+				<div class="item"><span>Schrank, 2-türig</span><div class="counter"><button onclick="updateCount(this, 'schrank2TurigCount', false)">-</button><input type="text" id="schrank2TurigCount" value="0" readonly><button onclick="updateCount(this, 'schrank2TurigCount', true)">+</button></div></div>
+				<div class="item"><span>Schrank, zerlegbar, je Tür</span><div class="counter"><button onclick="updateCount(this, 'schrankZerlegbarTurCount', false)">-</button><input type="text" id="schrankZerlegbarTurCount" value="0" readonly><button onclick="updateCount(this, 'schrankZerlegbarTurCount', true)">+</button></div></div>
+				<div class="item"><span>Schuhschrank</span><div class="counter"><button onclick="updateCount(this, 'schuhschrankCount', false)">-</button><input type="text" id="schuhschrankCount" value="0" readonly><button onclick="updateCount(this, 'schuhschrankCount', true)">+</button></div></div>
+				<div class="item"><span>Tisch bis 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischBis1mCount', false)">-</button><input type="text" id="tischBis1mCount" value="0" readonly><button onclick="updateCount(this, 'tischBis1mCount', true)">+</button></div></div>
+				<div class="item"><span>Tisch über 1 m</span><div class="counter"><button onclick="updateCount(this, 'tischUber1mCount', false)">-</button><input type="text" id="tischUber1mCount" value="0" readonly><button onclick="updateCount(this, 'tischUber1mCount', true)">+</button></div></div>
+				<div class="item"><span>Garderobe</span><div class="counter"><button onclick="updateCount(this, 'garderobeCount', false)">-</button><input type="text" id="garderobeCount" value="0" readonly><button onclick="updateCount(this, 'garderobeCount', true)">+</button></div></div>
+				<div class="item"><span>Garderobenständer</span><div class="counter"><button onclick="updateCount(this, 'garderobenstanderCount', false)">-</button><input type="text" id="garderobenstanderCount" value="0" readonly><button onclick="updateCount(this, 'garderobenstanderCount', true)">+</button></div></div>
+				<div class="item"><span>Kästchen</span><div class="counter"><button onclick="updateCount(this, 'kastchenCount', false)">-</button><input type="text" id="kastchenCount" value="0" readonly><button onclick="updateCount(this, 'kastchenCount', true)">+</button></div></div>
+			</div>
+		</section>
 
-
-
-    <section class="category">
-        <h2>Bad & WC</h2>
-        <div class="content">
-            <div class="item">
-                <span>Schrank 2 Türen, n. zerleg.</span>
-                <div class="counter">
-                    <button onclick="updateCount(this, 'schrank2TCount', false)">-</button>
-                    <input type="text" id="schrank2TCount" value="0" readonly>
-                    <button onclick="updateCount(this, 'schrank2TCount', true)">+</button>
-                </div>
-            </div>
-            <div class="item">
-                <span>Schrank, zerl. je angef. m</span>
-                <div class="counter">
-                    <button onclick="updateCount(this, 'schrankZCount', false)">-</button>
-                    <input type="text" id="schrankZCount" value="0" readonly>
-                    <button onclick="updateCount(this, 'schrankZCount', true)">+</button>
-                </div>
-            </div>
-            <div class="item">
-                <span>Waschmaschine / Trockner</span>
-                <div class="counter">
-                    <button onclick="updateCount(this, 'waschmaschineCount', false)">-</button>
-                    <input type="text" id="waschmaschineCount" value="0" readonly>
-                    <button onclick="updateCount(this, 'waschmaschineCount', true)">+</button>
-                </div>
-            </div>
-            <!-- Additional items here -->
-        </div>
-    </section>
-
-    <section class="category">
-        <h2>Arbeiten</h2>
-        <div class="content">
-            <div class="item">
-                <span>Aktenschrank, je lfd. m</span>
-                <div class="counter">
-                    <button onclick="updateCount(this, 'aktenschrankCount', false)">-</button>
-                    <input type="text" id="aktenschrankCount" value="0" readonly>
-                    <button onclick="updateCount(this, 'aktenschrankCount', true)">+</button>
-                </div>
-            </div>
-            <div class="item">
-                <span>Schreibtisch bis 1,6 m</span>
-                <div class="counter">
-                    <button onclick="updateCount(this, 'schreibtischBCount', false)">-</button>
-                    <input type="text" id="schreibtischBCount" value="0" readonly>
-                    <button onclick="updateCount(this, 'schreibtischBCount', true)">+</button>
-                </div>
-            </div>
-            <!-- Additional items here -->
-        </div>
-    </section>
+		<section class="category">
+			<h2>Handwerkerleistungen</h2>
+			<div class="content">
+				<div class="item"><span>Deckenlampen</span><div class="counter"><button onclick="updateCount(this, 'deckenlampenCount', false)">-</button><input type="text" id="deckenlampenCount" value="0" readonly><button onclick="updateCount(this, 'deckenlampenCount', true)">+</button></div></div>
+				<div class="item"><span>E-Herd</span><div class="counter"><button onclick="updateCount(this, 'eHerdCount', false)">-</button><input type="text" id="eHerdCount" value="0" readonly><button onclick="updateCount(this, 'eHerdCount', true)">+</button></div></div>
+				<div class="item"><span>Waschmaschine</span><div class="counter"><button onclick="updateCount(this, 'waschmaschineCount', false)">-</button><input type="text" id="waschmaschineCount" value="0" readonly><button onclick="updateCount(this, 'waschmaschineCount', true)">+</button></div></div>
+				<div class="item"><span>Spülmaschine</span><div class="counter"><button onclick="updateCount(this, 'spulmaschineCount', false)">-</button><input type="text" id="spulmaschineCount" value="0" readonly><button onclick="updateCount(this, 'spulmaschineCount', true)">+</button></div></div>
+				<div class="item"><span>Abbau der Möbel</span><div class="counter"><button onclick="updateCount(this, 'abbauMobelCount', false)">-</button><input type="text" id="abbauMobelCount" value="0" readonly><button onclick="updateCount(this, 'abbauMobelCount', true)">+</button></div></div>
+				<div class="item"><span>Aufbau der Möbel</span><div class="counter"><button onclick="updateCount(this, 'aufbauMobelCount', false)">-</button><input type="text" id="aufbauMobelCount" value="0" readonly><button onclick="updateCount(this, 'aufbauMobelCount', true)">+</button></div></div>
+		</section>
+		
+		<section class="category">
+			<h2>Dübelarbeiten</h2>
+			<div class="content">
+				<div class="item"><span>Gardinenstange</span><div class="counter"><button onclick="updateCount(this, 'gardinenstangeCount', false)">-</button><input type="text" id="gardinenstangeCount" value="0" readonly><button onclick="updateCount(this, 'gardinenstangeCount', true)">+</button></div></div>
+				<div class="item"><span>Bilder</span><div class="counter"><button onclick="updateCount(this, 'bilderCount', false)">-</button><input type="text" id="bilderCount" value="0" readonly><button onclick="updateCount(this, 'bilderCount', true)">+</button></div></div>
+				<div class="item"><span>Regale</span><div class="counter"><button onclick="updateCount(this, 'regaleCount', false)">-</button><input type="text" id="regaleCount" value="0" readonly><button onclick="updateCount(this, 'regaleCount', true)">+</button></div></div>
+				<div class="item"><span>Hängeschränke</span><div class="counter"><button onclick="updateCount(this, 'hangeschrankeCount', false)">-</button><input type="text" id="hangeschrankeCount" value="0" readonly><button onclick="updateCount(this, 'hangeschrankeCount', true)">+</button></div></div>
+				<div class="item"><span>Garderoben</span><div class="counter"><button onclick="updateCount(this, 'garderobenCount', false)">-</button><input type="text" id="garderobenCount" value="0" readonly><button onclick="updateCount(this, 'garderobenCount', true)">+</button></div></div>
+			</div>
+		</section>
+		
     </div>
+
+    <!-- Link to JavaScript -->
+    <script src="js/order-form.js"></script>
 </body>
 </html>
