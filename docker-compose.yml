@@ -23,7 +23,7 @@ services:
       - MAIL_PORT=587
       - MAIL_USE_TLS=true
       - MAIL_USERNAME=usam.sersultanov@gmail.com
-      - MAIL_PASSWORD=zkkb dbpd hnqg ckxv
+      - MAIL_PASSWORD= 
       - MAIL_DEFAULT_SENDER=usam.sersultanov@gmail.com
 
   updater:
