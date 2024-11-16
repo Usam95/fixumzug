@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- Global styles -->
     <link rel="stylesheet" href="css/order-form.css"> <!-- Order form specific styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome icons -->
+
 </head>
 <body>
 
@@ -33,36 +34,75 @@
         </nav>
     </header>
 
-    <!-- Main Content Container (excludes header) -->
+    <!-- Main Content Container -->
     <div class="container">
-        <!-- Angebot Anfragen Section -->
-        <section class="section">
-            <h2>ANGEBOT ANFRAGEN</h2>
-            <p>
-                Auf dieser Seite gibt es ein Anfrageformular, mit dem Sie die geschätzten <em>Kosten</em> für Ihren Umzug oder Ihre Entrümpelung anfragen können. Füllen Sie alle Felder des Formulars für eine genauere Berechnung aus, wir werden Ihnen ein kostenloses und unverbindliches Angebot für Ihren Umzug oder Entrümpelung erstellen.
-            </p>
-            <p>
-                Sollte das Datum für Ihren Umzug oder Entrümpelung noch nicht genau bekannt sein, dann fügen Sie ein ungefähres Datum ein und notieren dies in der Beschreibung.
-            </p>
-        </section>
 
-        <!-- Kontakt Section -->
-        <section class="contact-section">
-            <h2>Kontakt</h2>
-            <form id="contact-form" action="/submit" method="POST" enctype="multipart/form-data" class="contact-form">
-                <div class="contact-form">
+        <!-- Form for Contact and Order Details -->
+        <form id="contact-form" action="/submit" method="POST" enctype="multipart/form-data">
+            
+            <!-- Kontakt Section -->
+            <section class="section-box kontakt-section">
+                <h2>Kontakt</h2>
+                <div class="kontakt-info">
                     <input type="text" name="name" placeholder="Name*" required>
                     <input type="text" name="surname" placeholder="Vorname*" required>
                     <input type="email" name="email" placeholder="E-Mail*" required>
                     <input type="tel" name="phone" placeholder="Telefon">
-                    <textarea name="message" placeholder="Your message" required style="flex: 1 1 100%; height: 100px;"></textarea>
-                    <input type="file" name="files" accept="image/*,video/*" multiple style="flex: 1 1 100%; margin-top: 10px;">
+					<input type="date" name="date" placeholder="TT.mm.jjjj" required> <!-- Datum field with date picker -->
+
                 </div>
-                <div class="submit-section">
-                    <button type="submit" class="submit-button">ANGEBOT KOSTENLOS EINHOLEN</button>
+            </section>
+
+            <!-- Beschreibung Section -->
+            <section class="section-box beschreibung-section">
+                <h2>Beschreibung</h2>
+                <textarea name="description" placeholder="Ihre Nachricht" required></textarea>
+            </section>
+
+            <section class="section-box umzugsdetails-section">
+              <h2>Umzugsdetails</h2>
+
+              <div class="umzugsdetails-grid">
+                <!-- Subsection: Umzug von -->
+                <div class="umzug-from">
+                  <h3>Umzug von</h3>
+                  <input type="text" name="from_street" placeholder="Straße, Hausnummer" required>
+                  <input type="text" name="from_city" placeholder="Ort" required>
+                  <input type="text" name="from_zip" placeholder="PLZ" required>
+                  <input type="text" name="from_floor" placeholder="Stockwerk">
+                  <label><input type="checkbox" name="from_elevator"> Ist der Innenaufzug nutzbar?</label>
+                  <label><input type="checkbox" name="from_no_parking"> Halteverbote notwendig?</label>
                 </div>
-            </form>
-        </section>
+
+                <!-- Subsection: Umzug nach -->
+                <div class="umzug-to">
+                  <h3>Umzug nach</h3>
+                  <input type="text" name="to_street" placeholder="Straße, Hausnummer" required>
+                  <input type="text" name="to_city" placeholder="Ort" required>
+                  <input type="text" name="to_zip" placeholder="PLZ" required>
+                  <input type="text" name="to_floor" placeholder="Stockwerk">
+                  <label><input type="checkbox" name="to_elevator"> Ist der Innenaufzug nutzbar?</label>
+                  <label><input type="checkbox" name="to_no_parking"> Halteverbote notwendig?</label>
+                </div>
+              </div>
+            </section>
+
+
+			<!-- Fotos Section -->
+			<section class="section-box fotos-section">
+				<h2>Fotos</h2>
+				<p>Bitte laden Sie Fotos hoch, damit wir den Aufwand besser einschätzen können.</p>
+				<div class="photo-preview-container" id="photoPreviewContainer"></div> <!-- Container for photo previews -->
+				<label class="custom-file-upload">
+					<i class="fas fa-camera"></i> <!-- Font Awesome icon for camera/photo -->
+					<input type="file" name="photos" accept="image/jpeg,image/png" multiple onchange="previewPhotos(event)">
+					Dateien auswählen
+				</label>
+			</section>
+
+
+
+
 
 		<!-- Wohnzimmer Category -->
 		<section class="category">
@@ -304,7 +344,30 @@
 			</div>
 		</section>
 		
+		
+		
+		<!-- Agreement Section -->
+		<section class="section-box agreement-section">
+			<label>
+				<input type="checkbox" name="terms" required>
+				Ich habe die <a href="agb.html" target="_blank">Allgemeinen Geschäftsbedingungen</a> gelesen und akzeptiere diese.
+			</label>
+			<label>
+				<input type="checkbox" name="privacy" required>
+				Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzvereinbarung</a> gelesen und akzeptiere diese.
+			</label>
+		</section>
+	
+      <!-- Submit Button -->
+      <section class="submit-section">
+        <button type="submit" class="submit-button">ANGEBOT KOSTENLOS EINHOLEN</button>
+      </section>
+	  
+	  </form>
     </div>
+	
+	
+	
 
     <!-- Link to JavaScript -->
     <script src="js/order-form.js"></script>

@@ -68,3 +68,73 @@ document.getElementById("contact-form").addEventListener("submit", function(even
         alert("An error occurred. Please try again.");
     });
 });
+
+
+function displayFileNames(event) {
+    const fileNamesContainer = document.getElementById("fileNames");
+    fileNamesContainer.innerHTML = ""; // Clear previous file names
+
+    const files = event.target.files;
+
+    Array.from(files).forEach(file => {
+        const fileNameDiv = document.createElement("div");
+        fileNameDiv.textContent = file.name;
+        fileNamesContainer.appendChild(fileNameDiv);
+    });
+}
+
+
+// Array to store all selected files for easier management
+let selectedFiles = [];
+
+function previewPhotos(event) {
+    const files = Array.from(event.target.files);
+    
+    // Add new selected files to our main `selectedFiles` array
+    selectedFiles.push(...files);
+
+    // Display previews
+    renderPhotoPreviews();
+}
+
+function renderPhotoPreviews() {
+    const photoPreviewContainer = document.getElementById("photoPreviewContainer");
+    photoPreviewContainer.innerHTML = ""; // Clear previous previews
+
+    selectedFiles.forEach((file, index) => {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+            const photoDiv = document.createElement("div");
+            photoDiv.classList.add("photo-preview");
+
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            photoDiv.appendChild(img);
+
+            const deleteIcon = document.createElement("span");
+            deleteIcon.classList.add("delete-icon");
+            deleteIcon.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Font Awesome trash icon
+            deleteIcon.onclick = () => removePhoto(index); // Attach index to remove function
+            photoDiv.appendChild(deleteIcon);
+
+            photoPreviewContainer.appendChild(photoDiv);
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+function removePhoto(index) {
+    // Remove the file at the specified index from `selectedFiles`
+    selectedFiles.splice(index, 1);
+
+    // Update the preview display
+    renderPhotoPreviews();
+    
+    // Update the input field's FileList with the remaining files
+    const photoInput = document.querySelector('input[name="photos"]');
+    const dataTransfer = new DataTransfer();
+    selectedFiles.forEach(file => dataTransfer.items.add(file));
+    photoInput.files = dataTransfer.files;
+}
