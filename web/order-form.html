@@ -40,52 +40,109 @@
         <!-- Form for Contact and Order Details -->
         <form id="contact-form" action="/submit" method="POST" enctype="multipart/form-data">
             
-            <!-- Kontakt Section -->
-            <section class="section-box kontakt-section">
-                <h2>Kontakt</h2>
-                <div class="kontakt-info">
-                    <input type="text" name="name" placeholder="Name*" required>
-                    <input type="text" name="surname" placeholder="Vorname*" required>
-                    <input type="email" name="email" placeholder="E-Mail*" required>
-                    <input type="tel" name="phone" placeholder="Telefon">
-					<input type="date" name="date" placeholder="TT.mm.jjjj" required> <!-- Datum field with date picker -->
+			<!-- Kontakt Section -->
+			<section class="section-box kontakt-section">
+				<h2>Kontakt</h2>
+				<div class="kontakt-info">
+					<div class="floating-label">
+						<input type="name" id="name" name="name" placeholder=" " required>
+						<label for="name">Name*</label>
+					</div>
+					<div class="floating-label">
+						<input type="surname" id="surname" name="surname" placeholder=" " required>
+						<label for="surname">Vorname*</label>
+					</div>
+					<div class="floating-label">
+						<input type="email" id="email" name="email" placeholder=" " required>
+						<label for="email">E-Mail*</label>
+					</div>
+					<div class="floating-label">
+						<input type="tel" id="phone" name="phone" placeholder=" ">
+						<label for="phone">Telefon</label>
+					</div>
+				</div>
+			</section>
 
-                </div>
-            </section>
 
-            <!-- Beschreibung Section -->
-            <section class="section-box beschreibung-section">
-                <h2>Beschreibung</h2>
-                <textarea name="description" placeholder="Ihre Nachricht" required></textarea>
-            </section>
 
-            <section class="section-box umzugsdetails-section">
-              <h2>Umzugsdetails</h2>
 
-              <div class="umzugsdetails-grid">
-                <!-- Subsection: Umzug von -->
-                <div class="umzug-from">
-                  <h3>Umzug von</h3>
-                  <input type="text" name="from_street" placeholder="Straße, Hausnummer" required>
-                  <input type="text" name="from_city" placeholder="Ort" required>
-                  <input type="text" name="from_zip" placeholder="PLZ" required>
-                  <input type="text" name="from_floor" placeholder="Stockwerk">
-                  <label><input type="checkbox" name="from_elevator"> Ist der Innenaufzug nutzbar?</label>
-                  <label><input type="checkbox" name="from_no_parking"> Halteverbote notwendig?</label>
-                </div>
 
-                <!-- Subsection: Umzug nach -->
-                <div class="umzug-to">
-                  <h3>Umzug nach</h3>
-                  <input type="text" name="to_street" placeholder="Straße, Hausnummer" required>
-                  <input type="text" name="to_city" placeholder="Ort" required>
-                  <input type="text" name="to_zip" placeholder="PLZ" required>
-                  <input type="text" name="to_floor" placeholder="Stockwerk">
-                  <label><input type="checkbox" name="to_elevator"> Ist der Innenaufzug nutzbar?</label>
-                  <label><input type="checkbox" name="to_no_parking"> Halteverbote notwendig?</label>
-                </div>
-              </div>
-            </section>
+
+			<!-- Umzugsdetails Section -->
+			<section class="section-box umzugsdetails-section">
+				<h2>Umzugsdetails</h2>
+
+				<!-- Date element in its own row -->
+				<div class="date-row">
+					<div class="floating-label">
+						<input type="date" id="move_date" name="date" placeholder=" " required>
+						<label for="move_date">Datum*</label>
+					</div>
+				</div>
+
+				<!-- Two-column layout for Umzug von and Umzug nach -->
+				<div class="umzugsdetails-grid">
+					<!-- Subsection: Umzug von -->
+					<div class="umzug-from">
+						<h3>Umzug von</h3>
+						<div class="floating-label">
+							<input type="text" id="from_street" name="from_street" placeholder=" " required>
+							<label for="from_street">Straße, Hausnummer*</label>
+						</div>
+						<div class="floating-label">
+							<input type="text" id="from_city" name="from_city" placeholder=" " required>
+							<label for="from_city">Ort*</label>
+						</div>
+						<div class="floating-label">
+							<input type="text" id="from_zip" name="from_zip" placeholder=" " required>
+							<label for="from_zip">PLZ*</label>
+						</div>
+						<div class="floating-label">
+							<input type="text" id="from_floor" name="from_floor" placeholder=" ">
+							<label for="from_floor">Stockwerk</label>
+						</div>
+						<label>
+							<input type="checkbox" name="from_elevator">
+							Ist der Innenaufzug nutzbar?
+						</label>
+						<label>
+							<input type="checkbox" name="from_no_parking">
+							Halteverbote notwendig?
+						</label>
+					</div>
+
+					<!-- Subsection: Umzug nach -->
+					<div class="umzug-to">
+						<h3>Umzug nach</h3>
+						<div class="floating-label">
+							<input type="text" id="to_street" name="to_street" placeholder=" " required>
+							<label for="to_street">Straße, Hausnummer*</label>
+						</div>
+						<div class="floating-label">
+							<input type="text" id="to_city" name="to_city" placeholder=" " required>
+							<label for="to_city">Ort*</label>
+						</div>
+						<div class="floating-label">
+							<input type="text" id="to_zip" name="to_zip" placeholder=" " required>
+							<label for="to_zip">PLZ*</label>
+						</div>
+						<div class="floating-label">
+							<input type="text" id="to_floor" name="to_floor" placeholder=" ">
+							<label for="to_floor">Stockwerk</label>
+						</div>
+						<label>
+							<input type="checkbox" name="to_elevator">
+							Ist der Innenaufzug nutzbar?
+						</label>
+						<label>
+							<input type="checkbox" name="to_no_parking">
+							Halteverbote notwendig?
+						</label>
+					</div>
+				</div>
+			</section>
+
+
 
 
 			<!-- Fotos Section -->
@@ -345,6 +402,17 @@
 		</section>
 		
 		
+		
+		<!-- Beschreibung Section -->
+		<section class="section-box beschreibung-section">
+			<h2>Besonderheiten/ Bemerkungen</h2>
+			<div class="floating-label">
+				<textarea id="description" name="description" placeholder=" " required></textarea>
+				<label for="description">Nachricht</label>
+			</div>
+		</section>
+
+
 		
 		<!-- Agreement Section -->
 		<section class="section-box agreement-section">

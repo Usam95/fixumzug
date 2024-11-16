@@ -37,6 +37,7 @@ h1 {
 .category {
     margin-bottom: 20px;
     border-radius: 8px;
+	font-size: 1.1em;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -50,7 +51,7 @@ h1 {
     align-items: center;
     cursor: pointer;
     border-radius: 8px 8px 0 0;
-    font-size: 1.1em;
+    font-size: 1.3em;
     font-weight: bold;
     color: #333;
 }
@@ -99,10 +100,10 @@ h1 {
     color: #fff;
     border: none;
     padding: 5px;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
+    border-radius: 40%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -115,7 +116,7 @@ h1 {
     text-align: center;
     border: none;
     background-color: transparent;
-    font-size: 16px;
+    font-size: 20px;
     color: #333;
 }
 
@@ -132,22 +133,24 @@ h1 {
 .section-box h2 {
     font-size: 1.5em;
     color: #fff; /* White text color */
-    background-color: #13315c; /* Blue header background color */
+    background-color: #134074; /* Blue header background color */
     padding: 10px;
     border-radius: 8px 8px 0 0;
     margin: 0;
 }
 /* =================END COMMON SECTION HEADER STYLE================= */
 
+
+
 /* =================START KONTAKT SECTION================= */
 .kontakt-section h2 {
     font-size: 1.5em;
     color: #fff; /* White text color */
-    background-color: #13315c; /* Blue header background color */
+    background-color: #134074; /* Blue header background color */
     padding: 10px;
     border-radius: 8px 8px 0 0;
     margin: 0;
-    margin-bottom: 15px; /* Adds space below the header */
+    margin-bottom: 30px; /* Adds space below the header */
 }
 
 .kontakt-section .kontakt-info {
@@ -156,36 +159,68 @@ h1 {
     gap: 20px;
 }
 
-.kontakt-section input[type="text"],
-.kontakt-section input[type="email"],
-.kontakt-section input[type="tel"],
-.kontakt-section input[type="date"] {
+
+/* Floating label wrapper */
+.floating-label {
+    position: relative;
+    margin-bottom: 15px; /* Space between fields */
+}
+
+/* Floating label input styles */
+.floating-label input[type="name"],
+.floating-label input[type="surname"],
+.floating-label input[type="email"],
+.floating-label input[type="tel"]
+{
     width: 100%;
-    padding: 10px;
-    font-size: 1em;
+    padding: 12px 10px;
+    font-size: 1.4em;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
     box-sizing: border-box;
-    color: #888; /* Gray text color */
-    appearance: none; /* Ensures consistent styling across browsers */
+    color: #333; /* General input color */
+    font-style: italic; /* Ensures consistency with Umzugsdetails */
 }
 
-.kontakt-section input[type="date"]::-webkit-calendar-picker-indicator {
-    font-size: 1.4em; /* Increases icon size */
-    color: #888; /* Gray color for icon */
-    opacity: 0.6; /* Reduces icon opacity for a softer gray look */
+
+.floating-label input::placeholder {
+    font-size: 1.2em; /* Matches Umzugsdetails placeholder size */
+    color: #aaa; /* Matches Umzugsdetails placeholder color */
+    font-style: italic; /* Italic for consistency */
 }
 
-.kontakt-section input::placeholder {
-    color: #bbb; /* Gray color for all placeholders */
-    font-style: italic;
+.floating-label input:focus {
+    outline: none;
+    border-color: #134074; /* Add focus color */
+}
+
+/* Floating label styles */
+.floating-label label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+	font-style: italic;
+}
+
+/* Active state: When the input is focused or has a value */
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 8px;
+    font-size: 0.85em;
+    color: #134074; /* Match the focus color */
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .kontakt-section .kontakt-info {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column for smaller screens */
     }
 }
 /* =================END KONTAKT SECTION================= */
@@ -193,62 +228,35 @@ h1 {
 
 
 
-/* =================START BESCHREIBUNG SECTION================= */
-.beschreibung-section h2 {
-    font-size: 1.5em;
-    color: #fff; /* White text color */
-    background-color: #13315c; /* Blue header background color */
-    padding: 10px;
-    border-radius: 8px 8px 0 0;
-    margin: 0;
-    margin-bottom: 15px; /* Added space below the header */
-}
-
-.beschreibung-section .beschreibung-info {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-.beschreibung-section textarea {
-    width: 100%;
-    height: 150px; /* Set a fixed height for the textarea */
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
-    resize: none; /* Prevents resizing by dragging */
-    overflow-y: auto; /* Allows scrolling for larger content */
-}
-
-.beschreibung-section textarea::placeholder {
-    color: #aaa;
-    font-style: italic;
-}
-/* =================END BESCHREIBUNG SECTION================= */
-
-
 /* =================START UMZUGSDETAILS SECTION================= */
+
+/* Section header styling */
 .umzugsdetails-section h3 {
-    font-size: 1.5em; /* Increased font size */
+    font-size: 1.5em;
     font-weight: bold;
-    color: #333; /* Dark gray text color */
-    background-color: transparent; /* No background */
+    color: #333;
+    background-color: transparent;
     padding: 8px;
     border-radius: 5px;
     text-align: center;
-    margin-top: 5px; /* Reduced top margin */
-    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-bottom: 30px;
 }
 
+/* Row for the date input */
+.date-row {
+	margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Grid layout for "Umzug von" and "Umzug nach" */
 .umzugsdetails-grid {
     display: flex;
     gap: 20px;
     margin-top: 20px;
 }
 
+/* Individual column styling */
 .umzug-from,
 .umzug-to {
     flex: 1;
@@ -261,13 +269,23 @@ h1 {
 .umzug-from input[type="text"],
 .umzug-to input[type="text"] {
     width: 100%;
-    padding: 10px;
-    font-size: 1.1em;
-    margin-bottom: 15px;
+    padding: 12px 10px; /* Match the date field padding */
+    font-size: 1.4em; /* Match the date field font size */
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
     box-sizing: border-box;
+    color: #333; /* General input color */
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+/* Placeholder styling */
+.umzug-from input::placeholder,
+.umzug-to input::placeholder {
+    color: #aaa;
+    font-style: italic;
+    line-height: 1.5; /* Ensures equal top and bottom margin */
 }
 
 /* Increased font size for labels and checkbox size */
@@ -275,7 +293,7 @@ h1 {
 .umzug-to label {
     display: flex;
     align-items: center;
-    font-size: 1.2em; /* Increased font size for label text */
+    font-size: 1.2em;
     color: #555;
     gap: 10px;
     margin-bottom: 10px;
@@ -283,30 +301,110 @@ h1 {
 
 .umzug-from input[type="checkbox"],
 .umzug-to input[type="checkbox"] {
-    width: 25px; /* Increased checkbox width */
-    height: 25px; /* Increased checkbox height */
+    width: 25px;
+    height: 25px;
 }
 
-
+/* Placeholder styling */
 .umzug-from input::placeholder,
 .umzug-to input::placeholder {
     color: #aaa;
     font-style: italic;
 }
 
+/* Responsive adjustments for smaller screens */
 @media (max-width: 900px) {
     .umzugsdetails-grid {
         flex-direction: column;
     }
 }
+
+/* Styling for floating label inside the date row */
+.date-row .floating-label {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.date-row .floating-label input[type="date"] {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    color: #888;
+    appearance: none;
+}
+
+.date-row .floating-label input:focus {
+    outline: none;
+    border-color: #134074;
+}
+
+.date-row .floating-label label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+}
+
+.date-row .floating-label input:focus + label,
+.date-row .floating-label input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 8px;
+    font-size: 0.85em;
+    color: #134074;
+}
+
+/* Specific styling for the date picker */
+.date-row .floating-label input[type="date"]::-webkit-calendar-picker-indicator {
+    font-size: 1.4em;
+    color: #888;
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.floating-label input[type="date"] {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 1.1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    color: #333; /* General input color */
+	font-style: italic;
+}
+
+/* Floating label styles */
+.floating-label label {
+	padding: 12px 10px;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1.0em;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+	font-style: italic;
+}
+
+
 /* =================END UMZUGSDETAILS SECTION================= */
+
 
 
 /* =================START FOTOS SECTION================= */
 .fotos-section h2 {
     font-size: 1.5em;
     color: #fff; /* White text color */
-    background-color: #13315c; /* Blue header background color */
+    background-color: #134074; /* Blue header background color */
     padding: 10px;
     border-radius: 8px 8px 0 0;
     margin: 0;
@@ -391,6 +489,78 @@ h1 {
 
 
 
+/* =================START BESCHREIBUNG SECTION================= */
+
+.beschreibung-section h2 {
+    font-size: 1.5em;
+    color: #fff; /* White text color */
+    background-color: #134074; /* Blue header background color */
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    margin: 0;
+    margin-bottom: 30px; /* Added space below the header */
+}
+
+
+
+.beschreibung-section .floating-label {
+    position: relative;
+    margin-bottom: 20px; /* Adds spacing between the label and the next element */
+}
+
+.beschreibung-section .floating-label textarea {
+    width: 100%;
+    height: 150px; /* Set a fixed height for the textarea */
+    padding: 20px 10px; /* Added padding to the top */
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    resize: none; /* Prevents resizing by dragging */
+    overflow-y: auto; /* Allows scrolling for larger content */
+    color: #333;
+}
+
+.beschreibung-section .floating-label textarea::placeholder {
+    font-size: 1.2em; /* Make the placeholder text larger */
+    color: #888; /* Grayish color for better visibility */
+    position: relative; /* Required for moving the placeholder */
+    top: 5px; /* Slight vertical offset to move the text down */
+}
+
+
+
+.beschreibung-section .floating-label textarea:focus {
+    outline: none;
+    border-color: #134074; /* Blue border on focus */
+}
+
+.beschreibung-section .floating-label label {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    color: #aaa;
+    font-size: 1.4em;
+    transition: all 0.2s ease-out;
+    pointer-events: none; /* Prevents interaction with the label */
+}
+
+.beschreibung-section .floating-label textarea:focus + label,
+.beschreibung-section .floating-label textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.85em;
+    color: #134074; /* Blue color when the label moves up */
+}
+
+/* =================END BESCHREIBUNG SECTION================= */
+
+
+
+
+
+
 
 /* =================START AGREEMENT SECTION================= */
 .agreement-section {
@@ -442,14 +612,14 @@ h1 {
     background-color: #134074; /* Button color */
     color: #fff;
     padding: 15px;
-    font-size: 1.1em;
+    font-size: 1.6em;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
-    max-width: 300px; /* Optional: limit max width */
+    max-width: 800px; /* Optional: limit max width */
 }
 
 .submit-button:hover {
