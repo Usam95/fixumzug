@@ -1,0 +1,109 @@
+/* Reset */
+html, body, header, .header-container {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 40px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Kontakt Section */
+.kontakt-section h2,
+.beschreibung-section h2 {
+    font-size: 1.5em;
+    color: #fff;
+    background-color: #134074;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.kontakt-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Floating Label Styling */
+.floating-label {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.floating-label input,
+.floating-label textarea {
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 1.4em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    color: #333;
+    font-style: italic;
+    resize: none;
+}
+
+.floating-label label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label,
+.floating-label textarea:focus + label,
+.floating-label textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 8px;
+    font-size: 0.85em;
+    color: #134074;
+}
+
+/* Agreement Section */
+.agreement-section label {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.9em;
+    color: #555;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.agreement-section input[type="checkbox"] {
+    margin-top: 4px;
+}
+
+/* Submit Section */
+.submit-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-button {
+    background-color: #134074;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #102d56;
+}
