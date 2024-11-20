@@ -9,34 +9,12 @@
 
     <title>Fix Umzug - Moving Services</title>
     <link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/header.css?v=<%= Date.now() %>"> <!-- Header-specific styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-	<!-- Header Section -->
-	<header>
-		<div class="header-container">
-			<div class="logo">
-				<a href="index.html"> <!-- Link to the homepage -->
-					<img src="images/logo.svg" alt="Fix Umzug Logo">
-				</a>
-			</div>
-			<div class="contact-info">
-				<i class="fas fa-phone-alt"></i>
-				<span>+49 (0) 176/ 313 227 66</span>
-				<button class="quote-button">UMZUNGSANGEBOT ANFORDERN</button>
-			</div>
-		</div>
-		<nav>
-			<ul class="nav-menu">
-				<li><a href="#services">Service</a></li>
-				<li><a href="#about">Über uns</a></li>
-				<li><a href="#pricing">Preisliste</a></li>
-				<li><a href="kontakt.html">Kontakt</a></li> <!-- Updated to link to kontakt.html -->
-			</ul>
-		</nav>
-	</header>
-
+	<header></header>
    <div class="container">
 		<!-- Hero Section -->
 		<section class="hero-section" style="background-image: url('images/ingolstadt.jpg');">
@@ -170,5 +148,22 @@
         </div>
     </footer>
 
+
+	    <!-- Script to dynamically include the header -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('header.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load header');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading the header:', error));
+        });
+    </script>
 </body>
 </html>

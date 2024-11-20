@@ -17,73 +17,7 @@
     font-family: Arial, sans-serif;
 }
 
-/* Header Styling */
-header {
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 15px 10px 20px;
-    border-bottom: 1px solid var(--color-3);
-    font-size: 1.5em; /* Adjust as needed for the right size */
-}
 
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-height: 200px;
-	height: 120px; /* Ensure a fixed height for consistency */
-	overflow: hidden; /* Prevents content from expanding beyond the container */
-}
-
-.logo img {
-    height: 268px; /* Sets the image height to fill the container */
-    width: auto; /* Maintains aspect ratio */
-    object-fit: contain; /* Ensures the image scales without stretching */
-}
-
-.contact-info {
-    display: flex;
-    align-items: center;
-}
-
-.contact-info i {
-    color: var(--color-2);
-    margin-right: 5px;
-}
-
-.contact-info span {
-    color: var(--color-1);
-    margin-right: 20px;
-}
-
-.quote-button {
-    background-color: var(--color-2);
-    color: var(--color-5);
-    border: none;
-	padding: 10px 12px; /* Increase padding for a bigger button */
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-	font-size: 1.0em; /* Increase font size */
-}
-
-nav {
-    margin-top: 10px;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-    justify-content: center;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: var(--color-1);
-    font-weight: bold;
-}
 
 /* Hero Section Styling */
 /* Hero Section Styling */
