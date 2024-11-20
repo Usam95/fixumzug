@@ -3,14 +3,15 @@
     --color-secondary: #E0AB58; /* Accent Yellow-Orange */
     --color-bg: #ffffff; /* White Background */
     --color-text: #333333; /* Dark Text */
-    --color-hover: #134074; /* Hover Deep Blue */
+    --color-hover: #13315c; /* Darker Blue for Hover */
     --color-shadow: rgba(0, 0, 0, 0.1); /* Subtle Shadow */
     --color-hover-shadow: rgba(0, 0, 0, 0.3); /* Hover Shadow */
 
-    --nav-bg-gradient-start: #134074; /* Gradient Start */
-    --nav-bg-gradient-end: #E0AB58; /* Gradient End */
-    --nav-shadow: rgba(0, 0, 0, 0.2); /* Subtle Shadow */
+    --nav-bg-gradient-start: #134074; /* Deep Blue */
+    --nav-bg-gradient-end: #9E713C; /* Yellow-Orange */
+    --nav-shadow: rgba(0, 0, 0, 0.2); /* Subtle shadow */
     --nav-text: #ffffff; /* White Text */
+    --nav-hover: #134074; /* Hover Deep Blue */
 }
 
 /* Reset */
@@ -29,7 +30,7 @@ header {
     padding: 10px 15px 10px 20px;
     box-shadow: 0 4px 6px var(--color-shadow);
     border-bottom: 2px solid var(--color-primary);
-    font-size: 1.0em; /* Larger font size retained */
+    font-size: 1.3em; /* Larger font size retained */
 }
 
 .header-container {
@@ -65,22 +66,25 @@ header {
     margin-right: 20px;
 }
 
+
+/* Quote Button */
 .quote-button {
-    background-color: var(--color-secondary);
-    color: var(--color-primary); /* Text color */
+    background: var(--nav-bg-gradient-start);
+    /*color: #D4B37F; /* White text */
+	color: #FFFFFF;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Button size */
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
     font-weight: bold;
-    font-size: 1.2em; /* Larger button font size retained */
-    margin-right: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth scaling */
+    font-size: 1.00em; /* Larger button font size retained */
+    margin-right: 0px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
 .quote-button:hover {
-    transform: scale(1.1); /* Button enlarges slightly */
-    box-shadow: 0 6px 10px var(--color-hover-shadow);
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 6px 10px var(--color-hover-shadow); /* Add shadow on hover */
 }
 
 /* Navigation Bar */
@@ -90,11 +94,11 @@ nav {
         var(--nav-bg-gradient-start),
         var(--nav-bg-gradient-end)
     ); /* Gradient background */
-    border-radius: 10px;
+    border-radius: 10px; /* Rounded corners */
     margin: 20px;
     padding: 10px 20px;
     box-shadow: 0 4px 6px var(--nav-shadow);
-    font-size: 1.3em; /* Larger font size for navigation */
+    font-size: 1.0em; /* Larger font size for navigation */
 }
 
 .nav-menu {
@@ -108,8 +112,8 @@ nav {
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--nav-text);
-    font-size: 1.2em; /* Slightly larger font size retained */
+    color: var(--nav-text); /* White Text */
+    font-size: 1.05em; /* Slightly larger font size retained */
     font-weight: bold;
     padding: 10px 15px;
     border-radius: 5px;

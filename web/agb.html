@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Allgemeine Geschäftsbedingungen</title>
     <link rel="stylesheet" href="css/agb.css"> <!-- Link to your custom CSS file -->
+	<link rel="stylesheet" href="css/header.css?v=<%= Date.now() %>"> <!-- Header-specific styles -->
 </head>
 <body>
+
+	<header></header>
+
     <div class="container">
         <div class="header">
             <h1>Allgemeine Geschäftsbedingungen</h1>
@@ -81,5 +85,22 @@
         <p>Zählt zu dem Umzugsgut gefährliches Gut (z. B. Benzin oder Öle), ist der Absender verpflichtet, dem Möbelspediteur rechtzeitig anzugeben, welcher Natur die Gefahr ist, die von dem Gut ausgeht (z. B. Feuergefährlichkeit, ätzende Flüssigkeit, explosive Stoffe, etc.).</p>
     
 	</div>
+	
+	    <!-- Script to dynamically include the header -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('header.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load header');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading the header:', error));
+        });
+    </script>
 </body>
 </html>

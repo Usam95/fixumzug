@@ -11,6 +11,24 @@ html, body, header, .header-container {
     padding: 0;
 }
 
+header {
+    margin: 0;
+    padding: 0;
+    display: block; /* Ensure it's treated as a block-level element */
+    width: 100%;
+    background: none; /* Remove any inherited background styles */
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto; /* Allow dynamic height */
+    overflow: visible; /* Ensure content is not clipped */
+}
+
+
 /* Main container styling */
 /* Main container styling */
 .container {
@@ -22,11 +40,7 @@ html, body, header, .header-container {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for added effect */
 }
-/* Header and Title */
-header {
-    margin: 0;
-    padding: 0;
-}
+
 
 h1 {
     text-align: center;

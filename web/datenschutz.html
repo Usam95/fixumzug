@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutzvereinbarungen</title>
     <link rel="stylesheet" href="css/datenschutz.css"> <!-- Link to your CSS file -->
+	<link rel="stylesheet" href="css/header.css?v=<%= Date.now() %>"> <!-- Header-specific styles -->
 </head>
 <body>
+
+	<header></header>
     <div class="container">
         <div class="header">
             <h1>Datenschutzvereinbarungen</h1>
@@ -33,5 +36,22 @@
         <!-- Continue adding other sections and content -->
 
     </div>
+	
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			fetch('header.html')
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Failed to load header');
+					}
+					return response.text();
+				})
+				.then(data => {
+					document.querySelector('header').innerHTML = data;
+				})
+				.catch(error => console.error('Error loading the header:', error));
+		});
+	</script>
 </body>
 </html>

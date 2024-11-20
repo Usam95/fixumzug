@@ -4,6 +4,13 @@ html, body, header, .header-container {
     padding: 0;
 }
 
+:root {
+    --nav-bg-gradient-start: #134074; /* Deep Blue */
+    --nav-bg-gradient-end: #C6934D; /* Slightly Darker Yellow-Orange */
+    --border-color: #999; /* Darker border color */
+    --button-hover-bg: #102d56; /* Button hover color */
+}
+
 .container {
     max-width: 900px;
     margin: 30px auto;
@@ -16,13 +23,19 @@ html, body, header, .header-container {
 /* Kontakt Section */
 .kontakt-section h2,
 .beschreibung-section h2 {
-    font-size: 1.5em;
-    color: #fff;
-    background-color: #134074;
-    padding: 10px;
-    border-radius: 8px 8px 0 0;
-    margin: 0;
-    margin-bottom: 30px;
+    font-size: 1.5em; /* Keep the header text size */
+    color: #fff; /* White text color */
+    background: linear-gradient(
+        to right,
+        var(--nav-bg-gradient-start), /* Gradient start color */
+        var(--nav-bg-gradient-end)   /* Gradient end color */
+    ); /* Gradient background */
+    padding: 15px 10px; /* Increased padding for better spacing */
+    border-radius: 8px; /* Rounded corners for the label box */
+    margin: 0 0 20px 0; /* Add space below the labels */
+    text-align: left; /* Align the text to the left */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-weight: bold; /* Make the label text bold */
 }
 
 .kontakt-info {
@@ -40,21 +53,33 @@ html, body, header, .header-container {
 .floating-label input,
 .floating-label textarea {
     width: 100%;
-    padding: 12px 10px;
+    padding: 10px; /* Adjusted padding */
     font-size: 1.4em;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color); /* Darker border */
     border-radius: 5px;
     background-color: #f9f9f9;
     box-sizing: border-box;
     color: #333;
     font-style: italic;
     resize: none;
+    text-align: left; /* Align text to the left */
+}
+
+.floating-label input::placeholder,
+.floating-label textarea::placeholder {
+    opacity: 0; /* Hide placeholder when using labels */
+}
+
+.floating-label input:focus,
+.floating-label textarea:focus {
+    outline: none;
+    border-color: var(--nav-bg-gradient-start); /* Change border color on focus */
 }
 
 .floating-label label {
     position: absolute;
     top: 50%;
-    left: 10px;
+    left: 10px; /* Align label close to the left border */
     transform: translateY(-50%);
     font-size: 1em;
     color: #aaa;
@@ -67,9 +92,9 @@ html, body, header, .header-container {
 .floating-label textarea:focus + label,
 .floating-label textarea:not(:placeholder-shown) + label {
     top: -10px;
-    left: 8px;
+    left: 10px; /* Align floating label closer to the left */
     font-size: 0.85em;
-    color: #134074;
+    color: var(--nav-bg-gradient-start); /* Deep Blue color for label */
 }
 
 /* Agreement Section */
@@ -80,6 +105,9 @@ html, body, header, .header-container {
     color: #555;
     gap: 10px;
     margin: 15px 0;
+    border: 1px solid var(--border-color); /* Add border for checkbox area */
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .agreement-section input[type="checkbox"] {
@@ -93,17 +121,18 @@ html, body, header, .header-container {
 }
 
 .submit-button {
-    background-color: #134074;
+    background-color: var(--nav-bg-gradient-start); /* Gradient start color */
     color: white;
     font-size: 1.2em;
     font-weight: bold;
-    border: none;
+    border: 1px solid var(--border-color); /* Darker border */
     padding: 15px 30px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .submit-button:hover {
-    background-color: #102d56;
+    background-color: var(--button-hover-bg); /* Darker Blue on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
 }
