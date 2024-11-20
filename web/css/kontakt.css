@@ -13,12 +13,11 @@ html, body, header, .header-container {
 
 .container {
     max-width: 900px;
-    margin: 30px auto;
-    padding: 40px;
     background-color: #f8f9fa;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Kontakt Section */
 .kontakt-section h2,

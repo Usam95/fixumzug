@@ -1,10 +1,52 @@
+
+:root {
+    --nav-bg-gradient-start: #134074; /* Deep Blue */
+    --nav-bg-gradient-end: #C6934D; /* Slightly Darker Yellow-Orange */
+    --border-color: #999; /* Darker border color */
+    --button-hover-bg: #102d56; /* Button hover color */
+}
+
 /* General resets */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400; /* Normal weight */
+    font-style: normal; /* Normal text */
+    line-height: 1.6; /* Line height for readability */
     background-color: #f8f8f8;
     margin: 0;
     padding: 0;
 }
+
+h1, h2, h3 {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 1.8em; /* Adjust size */
+    color: #134074; /* Deep blue color for headings */
+    margin: 10px 0;
+}
+
+p, label, span {
+    font-family: 'Open Sans', 'Roboto', Arial, sans-serif;
+    font-weight: 400; /* Normal weight */
+    font-size: 1em; /* Standard font size */
+    color: #333; /* Neutral dark text color */
+    line-height: 1.6; /* Line height for readability */
+}
+
+button, .submit-button, .quote-button {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 700; /* Bold for emphasis */
+    font-size: 1.1em; /* Slightly larger font */
+    text-transform: uppercase; /* Make text uppercase */
+    color: #fff; /* White text */
+    background: #134074;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
 
 html, body, header, .header-container {
     margin: 0;
@@ -33,7 +75,7 @@ header {
 /* Main container styling */
 .container {
     max-width: 1500px;
-    margin: 30px auto;
+    margin: 20px auto;
     padding: 40px;
     /*background-color: #eaf4f4; /* Light greenish background color behind all sections */
     background-color: #f8f9fa;
@@ -110,14 +152,14 @@ h1 {
 }
 
 .counter button {
-    background-color: #134074;
+	background: #134074;
     color: #fff;
     border: none;
     padding: 5px;
     border-radius: 40%;
-    width: 40px;
+    width: 50px;
     height: 40px;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -147,7 +189,11 @@ h1 {
 .section-box h2 {
     font-size: 1.5em;
     color: #fff; /* White text color */
-    background-color: #134074; /* Blue header background color */
+	background: linear-gradient(
+        to right,
+        var(--nav-bg-gradient-start), /* Gradient start color */
+        var(--nav-bg-gradient-end)   /* Gradient end color */
+    ); /* Gradient background */
     padding: 10px;
     border-radius: 8px 8px 0 0;
     margin: 0;
@@ -160,7 +206,11 @@ h1 {
 .kontakt-section h2 {
     font-size: 1.5em;
     color: #fff; /* White text color */
-    background-color: #134074; /* Blue header background color */
+	background: linear-gradient(
+        to right,
+        var(--nav-bg-gradient-start), /* Gradient start color */
+        var(--nav-bg-gradient-end)   /* Gradient end color */
+    ); /* Gradient background */
     padding: 10px;
     border-radius: 8px 8px 0 0;
     margin: 0;
@@ -254,7 +304,7 @@ h1 {
     border-radius: 5px;
     text-align: center;
     margin-top: 5px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 /* Row for the date input */

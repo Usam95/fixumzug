@@ -1,17 +1,15 @@
 :root {
-    --color-primary: #134074; /* Primary Deep Blue */
-    --color-secondary: #E0AB58; /* Accent Yellow-Orange */
+    --color-primary: #134074; /* Deep Blue */
+    --color-secondary: #E0AB58; /* Yellow-Orange */
     --color-bg: #ffffff; /* White Background */
     --color-text: #333333; /* Dark Text */
-    --color-hover: #13315c; /* Darker Blue for Hover */
+    --color-hover: #102d56; /* Darker Blue for Hover */
     --color-shadow: rgba(0, 0, 0, 0.1); /* Subtle Shadow */
     --color-hover-shadow: rgba(0, 0, 0, 0.3); /* Hover Shadow */
-
     --nav-bg-gradient-start: #134074; /* Deep Blue */
     --nav-bg-gradient-end: #9E713C; /* Yellow-Orange */
-    --nav-shadow: rgba(0, 0, 0, 0.2); /* Subtle shadow */
     --nav-text: #ffffff; /* White Text */
-    --nav-hover: #134074; /* Hover Deep Blue */
+    --font-family: 'Roboto', 'Open Sans', Arial, sans-serif; /* Modern fonts */
 }
 
 /* Reset */
@@ -51,7 +49,7 @@ header {
 .contact-info {
     display: flex;
     align-items: center;
-    margin-right: 25px;
+    margin-right: 0px;
     margin-top: 30px;
     color: var(--color-primary);
 }
@@ -95,8 +93,11 @@ nav {
         var(--nav-bg-gradient-end)
     ); /* Gradient background */
     border-radius: 10px; /* Rounded corners */
-    margin: 20px;
-    padding: 10px 20px;
+    margin-top: 20px; /* Margin from the top */
+    margin-bottom: 5px; /* Margin from the bottom */
+    margin-left: 0px; /* Margin from the left */
+    margin-right: 0px; /* Margin from the right */
+    padding: 5px 5px;
     box-shadow: 0 4px 6px var(--nav-shadow);
     font-size: 1.0em; /* Larger font size for navigation */
 }
