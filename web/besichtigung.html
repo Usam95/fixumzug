@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Besichtigung</title>
+    <link rel="stylesheet" href="css/header.css?v=<%= Date.now() %>">
+    <link rel="stylesheet" href="css/besichtigung.css?v=<%= Date.now() %>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <header>
+        <!-- This will be dynamically loaded -->
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="outer-container">
+            <div class="container">
+                <!-- Contact Form Section -->
+                <form id="contact-form" action="/submit" method="POST" enctype="multipart/form-data">
+                    <section class="section-box kontakt-section">
+                        <h2>Kontaktformular</h2>
+                        <div class="kontakt-info">
+                            <div class="floating-label">
+                                <input type="text" id="name" name="name" placeholder=" " required>
+                                <label for="name">Name*</label>
+                            </div>
+                            <div class="floating-label">
+                                <input type="text" id="surname" name="surname" placeholder=" " required>
+                                <label for="surname">Vorname*</label>
+                            </div>
+                            <div class="floating-label">
+                                <input type="tel" id="phone" name="phone" placeholder=" " required>
+                                <label for="phone">Tel.-Nr.</label>
+                            </div>
+                            <div class="floating-label">
+                                <input type="email" id="email" name="email" placeholder=" " required>
+                                <label for="email">E-Mail*</label>
+                            </div>
+                        </div>
+
+                        <div class="date-time-row">
+                            <!-- Date Field -->
+                            <div class="floating-label">
+                                <input type="date" id="date" name="date" placeholder=" " required>
+                                <label for="date">Datum*</label>
+                            </div>
+
+                            <!-- Time Field -->
+                            <div class="floating-label">
+                                <input type="time" id="time" name="time" required>
+                                <label for="time">Zeit*</label>
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <section class="section-box beschreibung-section">
+                        <h2>Nachricht</h2>
+                        <div class="floating-label">
+                            <textarea id="description" name="description" placeholder=" " required></textarea>
+                            <label for="description">Nachricht</label>
+                        </div>
+                    </section>
+
+                    <!-- Agreement Section -->
+                    <section class="section-box agreement-section">
+                        <label>
+                            <input type="checkbox" name="terms" required>
+                            Ich bin darauf hingewiesen worden, dass die im Rahmen der vorstehend genannten Zwecke erhobenen persönlichen Daten meiner Person unter Beachtung des Bayerischen Datenschutzgesetzes (BayDSG) erhoben, verarbeitet, genutzt und übermittelt werden. *
+                        </label>
+                    </section>
+
+                    <!-- Submit Section -->
+                    <section class="submit-section">
+                        <button type="submit" class="submit-button">ABSENDEN</button>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script to enforce 30-minute interval -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const timeInput = document.getElementById('time');
+            timeInput.addEventListener('change', function () {
+                const [hours, minutes] = timeInput.value.split(':').map(Number);
+                if (minutes % 30 !== 0) {
+                    const roundedMinutes = Math.round(minutes / 30) * 30;
+                    timeInput.value = `${String(hours).padStart(2, '0')}:${String(roundedMinutes).padStart(2, '0')}`;
+                }
+            });
+        });
+    </script>
+
+    <!-- Script to dynamically include the header -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('header.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load header');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    document.querySelector('header').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading the header:', error));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+:root {
+    --nav-bg-gradient-start: #134074; /* Deep Blue */
+    --nav-bg-gradient-end: #C6934D; /* Slightly Darker Yellow-Orange */
+    --border-color: #999; /* Darker border color */
+    --button-hover-bg: #102d56; /* Button hover color */
+    --input-text-color: #666; /* Slightly grayer text color for input values */
+    --placeholder-text-color: #aaa; /* Lighter gray for placeholders */
+}
+
+/* Font styles from order-form.css applied */
+body {
+    font-family: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400; /* Normal weight */
+    font-style: normal; /* Normal text */
+    line-height: 1.6; /* Line height for readability */
+    background-color: #f8f8f8;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    font-weight: 700; /* Bold */
+    font-size: 1.8em; /* Adjust size */
+    color: #134074; /* Deep blue color for headings */
+    margin: 10px 0;
+}
+
+p, label, span {
+    font-family: 'Open Sans', 'Roboto', Arial, sans-serif;
+    font-weight: 400; /* Normal weight */
+    font-size: 1em; /* Standard font size */
+    color: #333; /* Neutral dark text color */
+    line-height: 1.6; /* Line height for readability */
+}
+
+button, .submit-button, .quote-button {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 700; /* Bold for emphasis */
+    font-size: 1.1em; /* Slightly larger font */
+    text-transform: uppercase; /* Make text uppercase */
+    color: #fff; /* White text */
+    background: #134074;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Reset */
+html, body, header, .header-container {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure header sticks to the top */
+header {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #fff; /* Header background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    position: relative; /* Ensures it doesn't overlap other elements */
+}
+
+
+.outer-container {
+    max-width: 1500px;
+    margin: 20px auto; /* Center the container */
+    padding: 50px 10px; /* Reduced left and right padding */
+    background-color: #ffffff; /* Brighter white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Styling for the container */
+.container {
+    max-width: 900px;
+    width: 100%;
+    background-color: #f8f9fa; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 40px; /* Inner spacing for content */
+    box-sizing: border-box; /* Includes padding in width and height */
+    margin: 30px auto; /* Add vertical space and center horizontally */
+}
+
+/* Reduce space between header and container */
+.container {
+    margin-top: 20px; /* Adjust this to control space between header and container */
+}
+
+.kontakt-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between the elements */
+}
+
+.kontakt-info .floating-label {
+    flex: 1 1 calc(50% - 20px); /* Each input takes half the width minus the gap */
+    min-width: 200px; /* Ensures inputs don’t shrink too much */
+}
+
+.kontakt-section h2,
+.beschreibung-section h2 {
+    font-size: 1.5em; /* Keep the header text size */
+    color: #fff; /* White text color */
+    background: linear-gradient(
+        to right,
+        var(--nav-bg-gradient-start), /* Gradient start color */
+        var(--nav-bg-gradient-end)   /* Gradient end color */
+    ); /* Gradient background */
+    padding: 15px 10px; /* Increased padding for better spacing */
+    border-radius: 8px; /* Rounded corners for the label box */
+    margin: 0 0 20px 0; /* Add space below the labels */
+    text-align: left; /* Align the text to the left */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-weight: bold; /* Make the label text bold */
+}
+
+/* Floating Label Styling for All Fields */
+.floating-label {
+    position: relative;
+    margin-bottom: 25px; /* Add consistent space below each input */
+    margin-top: 10px; /* Add consistent space above each input */
+}
+
+/* Floating Label Input Styling for All Fields */
+.floating-label input,
+.floating-label textarea {
+    width: 100%;
+    padding: 12px 10px; /* Adjusted padding */
+    font-size: 1.2em;
+    font-style: italic; /* Make the user input text italic */
+    border: 1px solid var(--border-color); /* Darker border */
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    color: var(--input-text-color); /* Slightly grayer input text */
+    resize: none;
+    text-align: left; /* Align text to the left */
+}
+
+/* Ensure Placeholder Text is Italic */
+.floating-label input::placeholder,
+.floating-label textarea::placeholder {
+    font-style: italic; /* Make the placeholder text italic */
+    color: var(--placeholder-text-color); /* Lighter gray for placeholders */
+}
+
+/* Focus State */
+.floating-label input:focus,
+.floating-label textarea:focus {
+    outline: none;
+    border-color: var(--nav-bg-gradient-start); /* Highlight border on focus */
+    font-style: italic; /* Ensure italic remains during focus */
+    color: var(--input-text-color); /* Grayer text during focus */
+}
+
+.floating-label label {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Align label close to the left border */
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label,
+.floating-label textarea:focus + label,
+.floating-label textarea:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px; /* Align floating label closer to the left */
+    font-size: 0.85em;
+    color: var(--nav-bg-gradient-start); /* Deep Blue color for label */
+}
+
+/* Date and Time Row Styling */
+.date-time-row {
+    display: flex;
+    gap: 20px; /* Add spacing between date and time fields */
+    margin-bottom: 30px; /* Add spacing below the row */
+    margin-top: 20px; /* Add spacing above the row */
+}
+
+/* Floating Label Input Styling for Date and Time */
+.floating-label input[type="date"],
+.floating-label input[type="time"] {
+    width: 100%; /* Ensure input takes full width of its container */
+    padding: 12px 10px; /* Match padding with other fields */
+    font-size: 1em; /* Match font size with other fields */
+    border: 1px solid var(--border-color); /* Same border style as other fields */
+    border-radius: 5px; /* Rounded corners for consistency */
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Include padding in width/height calculation */
+    color: var(--input-text-color); /* Slightly grayer chosen text */
+    appearance: none; /* Remove default browser styles */
+    height: 50px; /* Ensure consistent height with other input fields */
+}
+
+/* Placeholder behavior */
+.floating-label input[type="date"]::placeholder,
+.floating-label input[type="time"]::placeholder {
+    color: var(--placeholder-text-color); /* Lighter gray for placeholders */
+}
+
+/* Focus State */
+.floating-label input[type="date"]:focus,
+.floating-label input[type="time"]:focus {
+    outline: none;
+    border-color: var(--nav-bg-gradient-start); /* Highlight border on focus */
+}
+
+/* Floating Label Styling for Date and Time */
+.floating-label input[type="date"]:focus + label,
+.floating-label input[type="date"]:not(:placeholder-shown) + label,
+.floating-label input[type="time"]:focus + label,
+.floating-label input[type="time"]:not(:placeholder-shown) + label {
+    top: -10px; /* Adjust label position when focused */
+    left: 10px;
+    font-size: 0.85em; /* Shrink label size */
+    color: var(--nav-bg-gradient-start); /* Highlight label on focus */
+}
+
+/* Date-Time Picker Icon Adjustments */
+.floating-label input[type="time"]::-webkit-calendar-picker-indicator,
+.floating-label input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 10px; /* Position the icon to the right */
+    color: #888; /* Match color with input style */
+    opacity: 0.7; /* Add transparency for subtle effect */
+    cursor: pointer;
+}
+
+/* Ensure consistent alignment and size of the fields */
+.floating-label {
+    flex: 1; /* Ensure both fields take equal width in the row */
+    margin-bottom: 0; /* Remove default margins for alignment */
+}
+
+/* Agreement Section */
+.agreement-section label {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.9em;
+    color: #555;
+    gap: 10px;
+    margin: 15px 0;
+    border: 1px solid var(--border-color); /* Add border for checkbox area */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Submit Section */
+.submit-section {
+    text-align: center;
+    margin-top: 30px; /* Add extra space above the button */
+    margin-bottom: 20px; /* Add extra space below the button */
+}
+
+.submit-button {
+    background-color: var(--nav-bg-gradient-start); /* Gradient start color */
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 1px solid var(--border-color); /* Darker border */
+    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--button-hover-bg); /* Darker Blue on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+}

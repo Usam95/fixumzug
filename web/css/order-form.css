@@ -688,4 +688,5 @@ h1 {
 
 .submit-button:hover {
     background-color: #102d56; /* Slightly darker on hover */
+     transform: scale(1.05); /* Slight zoom on hover */
 }

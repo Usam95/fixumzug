@@ -11,12 +11,28 @@ html, body, header, .header-container {
     --button-hover-bg: #102d56; /* Button hover color */
 }
 
+/* Outer Wrapper Container */
+.outer-container {
+    max-width: 1500px;
+    margin: 20px auto; /* Center the container */
+    padding: 50px 10px; /* Reduced left and right padding */
+    background-color: #ffffff; /* Brighter white background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Inner Container */
 .container {
     max-width: 900px;
+    width: 100%;
     background-color: #f8f9fa;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Inner container shadow */
+    padding: 40px; /* Spacing inside the container */
+    margin: 0 auto; /* Centered within the outer container */
+    box-sizing: border-box;
 }
+
 
 
 /* Kontakt Section */
@@ -38,9 +54,9 @@ html, body, header, .header-container {
 }
 
 .kontakt-info {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between the elements */
 }
 
 /* Floating Label Styling */
@@ -134,4 +150,16 @@ html, body, header, .header-container {
 .submit-button:hover {
     background-color: var(--button-hover-bg); /* Darker Blue on hover */
     transform: scale(1.05); /* Slight zoom on hover */
+}
+
+
+@media (max-width: 768px) {
+    .outer-container {
+        margin: 20px auto;
+        padding: 20px 10px; /* Consistent smaller spacing */
+    }
+    .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
 }
